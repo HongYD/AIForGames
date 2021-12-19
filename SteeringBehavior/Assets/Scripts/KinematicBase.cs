@@ -22,7 +22,9 @@ public class KinematicBase : MonoBehaviour
     protected Kinematic kinematic;
     protected KinematicOutput kinematicOutput;
     [SerializeField]
-    protected float maxSpeed; 
+    protected float maxSpeed;
+    protected float timeToTarget = 0.25f;
+    protected float radius = 1.0f;
 
     protected void Start()
     {
@@ -37,18 +39,13 @@ public class KinematicBase : MonoBehaviour
     protected void ApplyMovement()
     {
         kinematic.position += kinematicOutput.outputVelocity * Time.deltaTime;
-        transform.position = kinematic.position;
+        transform.position = new Vector3(kinematic.position.x, 1.0f, kinematic.position.z);
         transform.rotation = Quaternion.Euler(0, kinematicOutput.outputRotation, 0);
     }
     
     protected float GetNewOrientation(Vector3 currentVelocity)
-    {     
-        if(currentVelocity.magnitude > 0.1f)
-        {
-            Debug.Log("current velocity" + currentVelocity.magnitude);
-            return Mathf.Atan2(currentVelocity.x, currentVelocity.z) * Mathf.Rad2Deg;
-        }
-        return 0;
+    {
+        return Mathf.Atan2(currentVelocity.x, currentVelocity.z) * Mathf.Rad2Deg;
     }
 
     protected void GetKinematicOutput(Transform targetTransform)
@@ -58,8 +55,16 @@ public class KinematicBase : MonoBehaviour
 
         Vector3 dir = (targetTransform.position - transform.position).normalized;
         Vector3 dis2d = targetTransform.position - transform.position;
-        kinematicOutput.outputVelocity = dir * maxSpeed;
-        kinematicOutput.outputRotation = GetNewOrientation(dis2d);
-
+        if (dis2d.magnitude < radius)
+        {
+            kinematicOutput.outputVelocity = Vector3.zero;
+            kinematicOutput.outputRotation = 0;
+        }
+        else
+        {
+            kinematicOutput.outputVelocity =  Vector3.ClampMagnitude(((dir * maxSpeed) / timeToTarget),maxSpeed);
+            kinematicOutput.outputRotation = GetNewOrientation(kinematicOutput.outputVelocity);
+            Debug.Log("curent speed: " + kinematicOutput.outputVelocity.magnitude);
+        }
     }
 }
