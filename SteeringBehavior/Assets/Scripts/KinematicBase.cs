@@ -48,7 +48,7 @@ public class KinematicBase : MonoBehaviour
         return Mathf.Atan2(currentVelocity.x, currentVelocity.z) * Mathf.Rad2Deg;
     }
 
-    protected void GetKinematicOutput(Transform targetTransform)
+    protected virtual void GetKinematicOutput(Transform targetTransform)
     {
         kinematicOutput.outputVelocity = Vector3.zero;
         kinematicOutput.outputRotation = 0;
@@ -63,7 +63,7 @@ public class KinematicBase : MonoBehaviour
         else
         {
             kinematicOutput.outputVelocity =  Vector3.ClampMagnitude(((dir * maxSpeed) / timeToTarget),maxSpeed);
-            kinematicOutput.outputRotation = GetNewOrientation(kinematicOutput.outputVelocity);
+            kinematicOutput.outputRotation =  GetNewOrientation(kinematicOutput.outputVelocity);
             Debug.Log("curent speed: " + kinematicOutput.outputVelocity.magnitude);
         }
     }
