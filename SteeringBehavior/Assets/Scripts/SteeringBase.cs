@@ -4,17 +4,60 @@ using UnityEngine;
 
 public class SteeringBase : MonoBehaviour
 {
-    struct Kinematic
+    public struct Kinematic
     {
-        Vector3 position;
-        float orientation;//面向
-        Vector3 velocity;
-        float rotation;//角速度
+        public Vector3 position;
+        public float orientation;//面向
+        public Vector3 velocity;
+        public float rotation;//角速度
     }
 
-    struct SteeringOutput
+    public struct SteeringOutput
     {
-        Vector3 linear;
-        float angular;
+        public Vector3 linear;
+        public float angular;
+    }
+
+    protected Kinematic kinematic;
+    protected SteeringOutput steeringOutput;
+    [SerializeField]
+    protected float maxSpeed;
+    [SerializeField]
+    protected float maxAcceleration;
+
+    protected void Start()
+    {
+        kinematic.position = Vector3.zero;
+        kinematic.orientation = 0;
+        kinematic.velocity = Vector3.zero;
+        kinematic.rotation = 0;
+        steeringOutput.linear = Vector3.zero;
+        steeringOutput.angular = 0;
+    }
+
+    protected virtual void GetSteeringOutput(Transform target)
+    {
+        steeringOutput.linear = Vector3.zero;
+        steeringOutput.angular = 0;
+
+        steeringOutput.linear = (target.position - transform.position).normalized * maxAcceleration;
+        steeringOutput.angular = 0;
+    }
+
+    protected void ApplyMovement()
+    {
+        kinematic.position += kinematic.velocity * Time.deltaTime;
+        kinematic.orientation += kinematic.rotation * Time.deltaTime;
+
+        kinematic.velocity += steeringOutput.linear * Time.deltaTime;
+        kinematic.rotation += steeringOutput.angular * Time.deltaTime;
+
+        transform.position = new Vector3(kinematic.position.x, 1.0f, kinematic.position.z);
+        transform.rotation = Quaternion.Euler(0, kinematic.orientation, 0);
+
+        if(kinematic.velocity.magnitude > maxSpeed)
+        {
+            kinematic.velocity = kinematic.velocity.normalized * maxSpeed;
+        }
     }
 }

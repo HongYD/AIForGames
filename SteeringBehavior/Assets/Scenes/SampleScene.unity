@@ -317,7 +317,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5215471659118772611, guid: 7755a0a9fee8a8c499ef19cadbe4ccd7, type: 3}
       propertyPath: positionToMouse
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7136796147847517776, guid: 7755a0a9fee8a8c499ef19cadbe4ccd7, type: 3}
       propertyPath: m_Name
@@ -456,7 +456,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4728924326747484625, guid: 0e961d4d145fecd4da0caeaf6e6b7446, type: 3}
   m_PrefabInstance: {fileID: 1360867028}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1795024405
+--- !u!114 &1795024404
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -465,6 +465,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 1795024403}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 547f8091452c39b4da7a2f07dd16ac0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSpeed: 7
+  maxAcceleration: 10
+  target: {fileID: 364351117}
+  targetRadius: 0.4
+  slowRadius: 2
+  timeToTarget: 0.1
+--- !u!114 &1795024405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1795024403}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 51ee00aa34338734cbd20161d2f92181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -472,6 +490,21 @@ MonoBehaviour:
   _changeDirTime: 0.2
   rd: 6
   forwardVec: 15
+  target: {fileID: 364351117}
+--- !u!114 &1795024409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1795024403}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e9c07633c7bbe34695f26b1b97be24e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSpeed: 5
+  maxAcceleration: 10
   target: {fileID: 364351117}
 --- !u!1001 &8892096527597721911
 PrefabInstance:
