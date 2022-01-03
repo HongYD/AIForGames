@@ -44,7 +44,7 @@ public class SteeringBase : MonoBehaviour
         steeringOutput.angular = 0;
     }
 
-    protected void ApplyMovement()
+    protected virtual void ApplyMovement()
     {
         kinematic.position += kinematic.velocity * Time.deltaTime;
         kinematic.orientation += kinematic.rotation * Time.deltaTime;
@@ -53,9 +53,9 @@ public class SteeringBase : MonoBehaviour
         kinematic.rotation += steeringOutput.angular * Time.deltaTime;
 
         transform.position = new Vector3(kinematic.position.x, 1.0f, kinematic.position.z);
-        transform.rotation = Quaternion.Euler(0, kinematic.orientation, 0);
+        transform.rotation = Quaternion.Euler(new Vector3(0, kinematic.orientation, 0));
 
-        if(kinematic.velocity.magnitude > maxSpeed)
+        if (kinematic.velocity.magnitude > maxSpeed)
         {
             kinematic.velocity = kinematic.velocity.normalized * maxSpeed;
         }
