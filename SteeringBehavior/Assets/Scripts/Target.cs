@@ -26,7 +26,14 @@ public class Target : MonoBehaviour
 
     void Update()
     {
-        if (positionToMouse) SetPositionTowardsMouseCursor();
+        if (positionToMouse)
+        {
+            SetPositionTowardsMouseCursor();
+        }
+        else
+        {
+            transform.position = new Vector3(-10.0f, 0, 1.0f);
+        }
     }
 
     private void SetPositionTowardsMouseCursor()

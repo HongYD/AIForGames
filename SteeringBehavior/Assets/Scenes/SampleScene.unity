@@ -463,7 +463,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1795024403}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 547f8091452c39b4da7a2f07dd16ac0e, type: 3}
   m_Name: 
@@ -471,8 +471,8 @@ MonoBehaviour:
   maxSpeed: 7
   maxAcceleration: 10
   target: {fileID: 364351117}
-  targetRadius: 0.6
-  slowRadius: 2
+  targetRadius: 0.5
+  slowRadius: 5
   timeToTarget: 0.1
 --- !u!114 &1795024405
 MonoBehaviour:
@@ -498,7 +498,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1795024403}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fdf277f2eeaae614bb613a0b0b569299, type: 3}
   m_Name: 
@@ -506,7 +506,7 @@ MonoBehaviour:
   maxSpeed: 90
   maxAcceleration: 180
   target: {fileID: 364351117}
-  targetRadius: 0.1
+  targetRadius: 0.5
   slowRadius: 20
   timeToTarget: 0.1
   maxAngularAcceleration: 160

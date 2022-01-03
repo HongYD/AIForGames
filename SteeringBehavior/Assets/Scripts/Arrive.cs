@@ -40,6 +40,7 @@ public class Arrive : SteeringBase
         {
             steeringOutput.linear = Vector3.zero;
             steeringOutput.angular = 0;
+            return;
         }
         else if(distance < slowRadius)
         {
