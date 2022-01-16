@@ -5,7 +5,7 @@ using UnityEngine;
 public class Align : SteeringBase
 {
     [SerializeField]
-    Transform target;
+    protected Transform target;
     [SerializeField]
     private float targetRadius;
     [SerializeField]

@@ -518,7 +518,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1795024403}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 27ed7ffddd2efa943b2b6a808b29fede, type: 3}
   m_Name: 
@@ -527,6 +527,26 @@ MonoBehaviour:
   maxAcceleration: 10
   target: {fileID: 364351117}
   maxPrediction: 3
+--- !u!114 &1795024408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1795024403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89f2bbb563ffae74b8bf6755df8f4dbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSpeed: 90
+  maxAcceleration: 180
+  target: {fileID: 364351117}
+  targetRadius: 0.5
+  slowRadius: 20
+  timeToTarget: 0.1
+  maxAngularAcceleration: 160
+  maxRotation: 80
 --- !u!114 &1795024409
 MonoBehaviour:
   m_ObjectHideFlags: 0
