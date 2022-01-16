@@ -5,7 +5,7 @@ using UnityEngine;
 public class Seek : SteeringBase
 {
     [SerializeField]
-    Transform target;
+    protected Transform target;
     // Update is called once per frame
     void Update()
     {

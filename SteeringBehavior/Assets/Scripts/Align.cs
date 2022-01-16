@@ -33,7 +33,6 @@ public class Align : SteeringBase
     {
         steeringOutput.linear = Vector3.zero;
         steeringOutput.angular = 0;
-        float targetSpeed = 0;
         float targetRotation = 0;
         Vector3 targetVelocity = Vector3.zero;
 

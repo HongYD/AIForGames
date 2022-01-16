@@ -32,7 +32,7 @@ public class Target : MonoBehaviour
         }
         else
         {
-            transform.position = new Vector3(-10.0f, 0, 1.0f);
+            transform.position = new Vector3(-100.0f, 0, -100.0f);
         }
     }
 
