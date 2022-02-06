@@ -302,6 +302,28 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4728924326747484629, guid: 219771ef71304c242bff41ae1e161ac2, type: 3}
   m_PrefabInstance: {fileID: 1079731490}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &339920120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 339920105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3482a2c38fc45f248b00386a354461f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSpeed: 10
+  maxAcceleration: 8
+  pathOffSet: 2
+  currentPosOnPath: {x: 0, y: 0}
+  target: {fileID: 839698995}
+  targetRadius: 0.1
+  slowRadius: 10
+  timeToTarget: 0.1
+  maxAngularAcceleration: 180
+  maxRotation: 50
 --- !u!1001 &697477572
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -641,13 +663,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 839698991}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b83850a98d057ee4a89ab8151d91647e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3
-  positionToMouse: 0
+  positionToMouse: 1
 --- !u!4 &839698995 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8164698647345020595, guid: 28b708ba5d4c36140aa7a8db3b4d734f, type: 3}
@@ -1243,12 +1265,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbcf694d364fb1b4fa2f934a8a1bd67a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  path: []
   unwalkableMask:
     serializedVersion: 2
     m_Bits: 256
   gridWorldSize: {x: 100, y: 100}
   nodeRadius: 0.5
-  path: []
 --- !u!4 &2128839596
 Transform:
   m_ObjectHideFlags: 0
@@ -1277,3 +1299,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   seeker: {fileID: 339920119}
   target: {fileID: 839698995}
+  path: []
