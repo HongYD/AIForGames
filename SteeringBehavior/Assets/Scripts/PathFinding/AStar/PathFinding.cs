@@ -6,10 +6,13 @@ public class PathFinding : MonoBehaviour
 {
     public Transform seeker, target;
     Grid grid;
+    [SerializeField]
+    public List<Node> path;
 
     private void Awake()
     {
         grid = GetComponent<Grid>();
+        path = new List<Node>();
     }
 
     // Update is called once per frame
@@ -80,7 +83,7 @@ public class PathFinding : MonoBehaviour
 
     void RetracePath(Node startNode, Node endNode)
     {
-        List<Node> path = new List<Node>();
+        path.Clear();
         Node currentNode = endNode;
 
         while (currentNode != startNode)
