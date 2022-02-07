@@ -50,7 +50,7 @@ public class Separation : SteeringBase
 
         for (int i =0; i < playerList.Count; i++)
         {
-            direction = playerList[i].position - this.transform.position;
+            direction = this.transform.position - playerList[i].position;
             if(direction.magnitude <= 0)
             {
                 continue;
@@ -63,7 +63,7 @@ public class Separation : SteeringBase
                 strength = Mathf.Min(decayCoefficient / (distance * distance), maxAcceleration);
             }
             direction2D += direction2D.normalized;
-            steeringOutput.linear += strength * (-direction2D);
+            steeringOutput.linear += strength * direction2D;
         }
         steeringOutput.linear += (target.position - transform.position).normalized * maxAcceleration;
 
