@@ -52,8 +52,6 @@ public class PathFollowing : SteeringBase
             newTarget = path[newIndexInPath].worldPosition;
         }
         
-
-
         steeringOutput.linear = (newTarget - transform.position).normalized * maxAcceleration;
         Vector3 characterFacing3D = transform.GetChild(0).transform.position - transform.position;
         Vector3 charcterFacing = new Vector3(characterFacing3D.x, 0, characterFacing3D.z);
@@ -83,7 +81,6 @@ public class PathFollowing : SteeringBase
 
         //·½Ïò
         targetRotation *= (rotation / rotationSize);
-
         steeringOutput.angular = targetRotation - kinematic.rotation;
         steeringOutput.angular /= timeToTarget;
 

@@ -2,20 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//Wander = Align + Seek
-public class Wander : SteeringBase
+public class Separation : SteeringBase
 {
-    float _changeDirTime = 5.0f;
-    float changeDirTime;
-
-    [Range(5, 10)]
-    public int rd;
-
-    [Range(10, 20)]
-    public int forwardVec;
-
-    Vector3 direction;
-    Vector3 center;
+    private List<Transform> playerList;
+    public float threshold = 1.0f;
+    public float decayCoefficient = 2.0f;
 
     [SerializeField]
     Transform target;
@@ -30,26 +21,22 @@ public class Wander : SteeringBase
     [SerializeField]
     private float maxRotation;
 
-    private void Start()
+    // Start is called before the first frame update
+    void Start()
     {
-        base.Start();
-        direction = Random.insideUnitSphere.normalized;
-        changeDirTime = _changeDirTime;
+        playerList = new List<Transform>();
+        GameObject PlayerList = GameObject.Find("PlayerList");
+        int childCount = PlayerList.transform.childCount;
+        for (int i = 0; i < childCount; i++)
+        {
+            playerList.Add(PlayerList.transform.GetChild(i));
+        }
+
     }
 
-    private void Update()
+    // Update is called once per frame
+    void Update()
     {
-        changeDirTime -= Time.deltaTime;
-        center = transform.position + (transform.up * forwardVec);
-
-        if(changeDirTime <= 0)
-        {
-            direction = Random.insideUnitSphere.normalized;
-            changeDirTime = _changeDirTime;
-        }
-        Vector3 newPosOfTarget = center + (direction * rd);
-        target.position = new Vector3(newPosOfTarget.x, 0, newPosOfTarget.z);
-
         GetSteeringOutput(target);
         ApplyMovement();
     }
@@ -59,9 +46,28 @@ public class Wander : SteeringBase
         steeringOutput.linear = Vector3.zero;
         steeringOutput.angular = 0;
         float targetRotation = 0;
-        Vector3 targetVelocity = Vector3.zero;
+        Vector3 direction = Vector3.zero;
 
-        steeringOutput.linear = (target.position - transform.position).normalized * maxAcceleration;
+        for (int i =0; i < playerList.Count; i++)
+        {
+            direction = playerList[i].position - this.transform.position;
+            if(direction.magnitude <= 0)
+            {
+                continue;
+            }
+            Vector3 direction2D = new Vector3(direction.x, 0, direction.z);
+            float distance = direction2D.magnitude;
+            float strength = 0;
+            if (distance < threshold)
+            {
+                strength = Mathf.Min(decayCoefficient / (distance * distance), maxAcceleration);
+            }
+            direction2D += direction2D.normalized;
+            steeringOutput.linear += strength * (-direction2D);
+        }
+        steeringOutput.linear += (target.position - transform.position).normalized * maxAcceleration;
+
+        //rotation
         Vector3 characterFacing3D = transform.GetChild(0).transform.position - transform.position;
         Vector3 charcterFacing = new Vector3(characterFacing3D.x, 0, characterFacing3D.z);
         charcterFacing = charcterFacing.normalized;
@@ -73,13 +79,12 @@ public class Wander : SteeringBase
         float rotation = Vector3.SignedAngle(charcterFacing, targetOrientation, Vector3.up);
         float rotationSize = Mathf.Abs(rotation);
 
-        if(rotationSize < targetRadius)
+        if (rotationSize < targetRadius)
         {
-            steeringOutput.linear = (target.position - transform.position).normalized * maxAcceleration;
             steeringOutput.angular = 0;
             return;
         }
-        else if(rotationSize > slowRadius)
+        else if (rotationSize > slowRadius)
         {
             targetRotation = maxRotation;
         }

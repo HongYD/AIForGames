@@ -27,7 +27,7 @@ public class SteeringBase : MonoBehaviour
 
     protected void Start()
     {
-        kinematic.position = Vector3.zero;
+        kinematic.position = transform.position;
         kinematic.orientation = 0;
         kinematic.velocity = Vector3.zero;
         kinematic.rotation = 0;
