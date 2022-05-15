@@ -5,7 +5,7 @@ using UnityEngine;
 //Wander = Align + Seek
 public class Wander : SteeringBase
 {
-    float _changeDirTime = 5.0f;
+    float _changeDirTime = 8.0f;
     float changeDirTime;
 
     [Range(5, 10)]
