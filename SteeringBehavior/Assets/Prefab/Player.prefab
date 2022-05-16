@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 2089809419}
   - component: {fileID: 530529415966121344}
   - component: {fileID: 7162105883562209364}
+  - component: {fileID: 68962242}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -270,6 +271,31 @@ MonoBehaviour:
   timeToTarget: 0.1
   maxAngularAcceleration: 40
   maxRotation: 45
+--- !u!114 &68962242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4728924326747484625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0536d532fae2d044397c8c8fa367b917, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSpeed: 8
+  maxAcceleration: 20
+  target: {fileID: 0}
+  avoidDistance: 10
+  lookAhead: 5
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 256
+  targetRadius: 0.1
+  slowRadius: 45
+  timeToTarget: 0.1
+  maxAngularAcceleration: 180
+  maxRotation: 90
 --- !u!1 &4728924327285043734
 GameObject:
   m_ObjectHideFlags: 0
