@@ -99,7 +99,7 @@ public class ObstacleAvoidance : Seek
         Gizmos.color = Color.red;
         Gizmos.DrawLine(this.transform.position, this.transform.position + characterFacing * lookAhead);
         Gizmos.color = Color.blue;
-        Gizmos.DrawSphere(hit.point + hit.point + hit.normal * avoidDistance, 0.5f);
+        Gizmos.DrawSphere(hit.point + hit.normal * avoidDistance, 0.5f);
         Gizmos.color = Color.green;
         Gizmos.DrawLine(hit.point, hit.point + hit.normal * avoidDistance);
         
