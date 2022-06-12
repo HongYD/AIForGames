@@ -35,6 +35,11 @@ public class SteeringBase : MonoBehaviour
         steeringOutput.angular = 0;
     }
 
+    protected virtual Vector3 GetFacing(Transform agent)
+    {
+        return new Vector3();
+    }
+
     protected virtual void GetSteeringOutput(Transform target)
     {
         steeringOutput.linear = Vector3.zero;
@@ -44,6 +49,10 @@ public class SteeringBase : MonoBehaviour
         steeringOutput.angular = 0;
     }
 
+    protected virtual SteeringOutput GetSteeringOutput(Transform angent, List<Transform> neighbours)
+    {
+        return new SteeringOutput();
+    }
     protected virtual void ApplyMovement()
     {
         kinematic.position += kinematic.velocity * Time.deltaTime;
