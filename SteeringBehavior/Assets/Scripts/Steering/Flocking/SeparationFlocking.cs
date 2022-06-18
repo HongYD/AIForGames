@@ -10,10 +10,10 @@ public class SeparationFlocking : SteeringBase
     private float decayCoefficient = 2.0f;
     /// <param name="flockingAgent"> current agent</param>
     /// <param name="neighbours"> neighbours</param>
-    protected override SteeringOutput GetSteeringOutput(Transform flockingAgent, List<Transform> neighbours)
+    public override SteeringOutput GetSteeringOutput(Transform flockingAgent, List<Transform> neighbors)
     {
         SteeringOutput steeringOutput = new SteeringOutput();
-        if (neighbours.Count == 0 || neighbours == null)
+        if (neighbors.Count == 0 || neighbors == null)
         {
             steeringOutput.linear = Vector3.zero;
             steeringOutput.angular = 0f;
@@ -22,7 +22,7 @@ public class SeparationFlocking : SteeringBase
 
         Vector3 avoidanceForce = new Vector3();
         int numAvoid = 0;
-        foreach (Transform t in neighbours)
+        foreach (Transform t in neighbors)
         {
             if(Vector3.Magnitude(t.position - flockingAgent.position) < threshold)
             {

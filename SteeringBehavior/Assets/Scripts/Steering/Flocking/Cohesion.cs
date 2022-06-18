@@ -8,10 +8,10 @@ public class Cohesion : SteeringBase
     private float targetRadius = 0.1f;
     /// <param name="flockingAgent"> current agent</param>
     /// <param name="neighbours"> neighbours</param>
-    protected override SteeringOutput GetSteeringOutput(Transform flockingAgent, List<Transform> neighbours)
+    public override SteeringOutput GetSteeringOutput(Transform flockingAgent, List<Transform> neighbors)
     {
         SteeringOutput steeringOutput = new SteeringOutput();
-        if (neighbours.Count == 0 || neighbours == null) 
+        if (neighbors.Count == 0 || neighbors == null) 
         {
             steeringOutput.linear = Vector3.zero;
             steeringOutput.angular = 0f;
@@ -19,11 +19,11 @@ public class Cohesion : SteeringBase
         }
 
         Vector3 massCenter = new Vector3();
-        foreach (Transform t in neighbours)
+        foreach (Transform t in neighbors)
         {
             massCenter += t.position;
         }
-        massCenter /= neighbours.Count;
+        massCenter /= neighbors.Count;
 
         if((massCenter- flockingAgent.position).magnitude < targetRadius)
         {

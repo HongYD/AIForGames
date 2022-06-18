@@ -49,7 +49,7 @@ public class SteeringBase : MonoBehaviour
         steeringOutput.angular = 0;
     }
 
-    protected virtual SteeringOutput GetSteeringOutput(Transform angent, List<Transform> neighbours)
+    public virtual SteeringOutput GetSteeringOutput(Transform angent, List<Transform> neighbors)
     {
         return new SteeringOutput();
     }

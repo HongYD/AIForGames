@@ -16,10 +16,10 @@ public class Alignment : SteeringBase
     private float timeToTarget = 0.1f;
     /// <param name="flockingAgent"> current agent</param>
     /// <param name="neighbours"> neighbours</param>
-    protected override SteeringOutput GetSteeringOutput(Transform flockingAgent, List<Transform> neighbours)
+    public override SteeringOutput GetSteeringOutput(Transform flockingAgent, List<Transform> neighbors)
     {
         SteeringOutput steeringOutput = new SteeringOutput();
-        if (neighbours.Count == 0 || neighbours == null)
+        if (neighbors.Count == 0 || neighbors == null)
         {
             steeringOutput.linear = Vector3.zero;
             steeringOutput.angular = 0f;
@@ -27,11 +27,11 @@ public class Alignment : SteeringBase
         }
 
         Vector3 averageFacing = new Vector3();
-        foreach (Transform t in neighbours)
+        foreach (Transform t in neighbors)
         {
             averageFacing += GetFacing(t);
         }
-        averageFacing /= neighbours.Count;
+        averageFacing /= neighbors.Count;
         averageFacing = averageFacing.normalized;
 
         Vector3 currentFacing = GetFacing(flockingAgent);
