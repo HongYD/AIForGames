@@ -5,9 +5,10 @@ using UnityEngine;
 public class SeparationFlocking : SteeringBase
 {
     [SerializeField]
-    private float threshold = 1.0f;
+    private float threshold = 2.5f;
     [SerializeField]
-    private float decayCoefficient = 2.0f;
+    private float decayCoefficient = 5.0f;
+    private float maxAcceleration = 5.0f;
     /// <param name="flockingAgent"> current agent</param>
     /// <param name="neighbours"> neighbours</param>
     public override SteeringOutput GetSteeringOutput(Transform flockingAgent, List<Transform> neighbors)

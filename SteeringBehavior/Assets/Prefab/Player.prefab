@@ -22,7 +22,8 @@ GameObject:
   - component: {fileID: 530529415966121344}
   - component: {fileID: 7162105883562209364}
   - component: {fileID: 68962242}
-  m_Layer: 0
+  - component: {fileID: 1582327518642755073}
+  m_Layer: 10
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,7 +103,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 4728924326747484625}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
@@ -283,7 +284,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4728924326747484625}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0536d532fae2d044397c8c8fa367b917, type: 3}
   m_Name: 
@@ -301,6 +302,30 @@ MonoBehaviour:
   timeToTarget: 0.1
   maxAngularAcceleration: 180
   maxRotation: 90
+--- !u!114 &1582327518642755073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4728924326747484625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40ccb7e24c298df4b8589a35d0e39d1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSpeed: 5
+  maxAcceleration: 3
+  target: {fileID: 0}
+  player:
+    serializedVersion: 2
+    m_Bits: 1024
+  neighborRadius: 3
+  alignmentFactor: 2
+  cohesionFactor: 1
+  separationFlockingFactor: 10
+  seekFactor: 4
+  alignFactor: 1.5
 --- !u!1 &4728924327285043734
 GameObject:
   m_ObjectHideFlags: 0

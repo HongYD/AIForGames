@@ -6,6 +6,7 @@ public class Cohesion : SteeringBase
 {
     [SerializeField]
     private float targetRadius = 0.1f;
+    private float maxAcceleration = 5.0f;
     /// <param name="flockingAgent"> current agent</param>
     /// <param name="neighbours"> neighbours</param>
     public override SteeringOutput GetSteeringOutput(Transform flockingAgent, List<Transform> neighbors)
