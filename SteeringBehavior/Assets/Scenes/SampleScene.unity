@@ -536,12 +536,24 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
+      propertyPath: alignFactor
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
+      propertyPath: timeToTarget
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
       propertyPath: player.m_Bits
       value: 1024
       objectReference: {fileID: 0}
     - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
+      propertyPath: slowAngleDiff
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
       propertyPath: cohesionFactor
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
       propertyPath: neighborRadius
@@ -550,6 +562,10 @@ PrefabInstance:
     - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
       propertyPath: alignmentFactor
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
+      propertyPath: targetAngleDiff
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
       propertyPath: layerMask.m_Bits
@@ -669,12 +685,24 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
+      propertyPath: alignFactor
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
+      propertyPath: timeToTarget
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
       propertyPath: player.m_Bits
       value: 1024
       objectReference: {fileID: 0}
     - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
+      propertyPath: slowAngleDiff
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
       propertyPath: cohesionFactor
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
       propertyPath: neighborRadius
@@ -683,6 +711,10 @@ PrefabInstance:
     - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
       propertyPath: alignmentFactor
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
+      propertyPath: targetAngleDiff
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
       propertyPath: layerMask.m_Bits
@@ -895,12 +927,24 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
+      propertyPath: alignFactor
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
+      propertyPath: timeToTarget
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
       propertyPath: player.m_Bits
       value: 1024
       objectReference: {fileID: 0}
     - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
+      propertyPath: slowAngleDiff
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
       propertyPath: cohesionFactor
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
       propertyPath: neighborRadius
@@ -909,6 +953,10 @@ PrefabInstance:
     - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
       propertyPath: alignmentFactor
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
+      propertyPath: targetAngleDiff
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
       propertyPath: layerMask.m_Bits
@@ -1123,12 +1171,24 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
+      propertyPath: alignFactor
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
+      propertyPath: timeToTarget
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
       propertyPath: player.m_Bits
       value: 1024
       objectReference: {fileID: 0}
     - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
+      propertyPath: slowAngleDiff
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
       propertyPath: cohesionFactor
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
       propertyPath: neighborRadius
@@ -1137,6 +1197,10 @@ PrefabInstance:
     - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
       propertyPath: alignmentFactor
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
+      propertyPath: targetAngleDiff
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
       propertyPath: layerMask.m_Bits
@@ -1354,12 +1418,24 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
+      propertyPath: alignFactor
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
+      propertyPath: timeToTarget
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
       propertyPath: player.m_Bits
       value: 1024
       objectReference: {fileID: 0}
     - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
+      propertyPath: slowAngleDiff
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
       propertyPath: cohesionFactor
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
       propertyPath: neighborRadius
@@ -1368,6 +1444,10 @@ PrefabInstance:
     - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
       propertyPath: alignmentFactor
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
+      propertyPath: targetAngleDiff
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
       propertyPath: layerMask.m_Bits
@@ -1487,12 +1567,24 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
+      propertyPath: alignFactor
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
+      propertyPath: timeToTarget
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
       propertyPath: player.m_Bits
       value: 1024
       objectReference: {fileID: 0}
     - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
+      propertyPath: slowAngleDiff
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
       propertyPath: cohesionFactor
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
       propertyPath: neighborRadius
@@ -1501,6 +1593,10 @@ PrefabInstance:
     - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
       propertyPath: alignmentFactor
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
+      propertyPath: targetAngleDiff
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
       propertyPath: layerMask.m_Bits
@@ -1620,12 +1716,24 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
+      propertyPath: alignFactor
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
+      propertyPath: timeToTarget
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
       propertyPath: player.m_Bits
       value: 1024
       objectReference: {fileID: 0}
     - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
+      propertyPath: slowAngleDiff
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
       propertyPath: cohesionFactor
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
       propertyPath: neighborRadius
@@ -1634,6 +1742,10 @@ PrefabInstance:
     - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
       propertyPath: alignmentFactor
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
+      propertyPath: targetAngleDiff
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
       propertyPath: layerMask.m_Bits
@@ -1948,12 +2060,24 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
+      propertyPath: alignFactor
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
+      propertyPath: timeToTarget
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
       propertyPath: player.m_Bits
       value: 1024
       objectReference: {fileID: 0}
     - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
+      propertyPath: slowAngleDiff
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
       propertyPath: cohesionFactor
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
       propertyPath: neighborRadius
@@ -1962,6 +2086,10 @@ PrefabInstance:
     - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
       propertyPath: alignmentFactor
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
+      propertyPath: targetAngleDiff
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
       propertyPath: layerMask.m_Bits
@@ -2115,12 +2243,24 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
+      propertyPath: alignFactor
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
+      propertyPath: timeToTarget
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
       propertyPath: player.m_Bits
       value: 1024
       objectReference: {fileID: 0}
     - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
+      propertyPath: slowAngleDiff
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
       propertyPath: cohesionFactor
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
       propertyPath: neighborRadius
@@ -2129,6 +2269,10 @@ PrefabInstance:
     - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
       propertyPath: alignmentFactor
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
+      propertyPath: targetAngleDiff
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
       propertyPath: layerMask.m_Bits
@@ -2233,7 +2377,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8164698647345020595, guid: f1c0b1a38d2b3f742b0539bf979a129d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.66
+      value: 52
       objectReference: {fileID: 0}
     - target: {fileID: 8164698647345020595, guid: f1c0b1a38d2b3f742b0539bf979a129d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2241,7 +2385,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8164698647345020595, guid: f1c0b1a38d2b3f742b0539bf979a129d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 17.4
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 8164698647345020595, guid: f1c0b1a38d2b3f742b0539bf979a129d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2444,12 +2588,24 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
+      propertyPath: alignFactor
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
+      propertyPath: timeToTarget
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
       propertyPath: player.m_Bits
       value: 1024
       objectReference: {fileID: 0}
     - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
+      propertyPath: slowAngleDiff
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
       propertyPath: cohesionFactor
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
       propertyPath: neighborRadius
@@ -2458,6 +2614,10 @@ PrefabInstance:
     - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
       propertyPath: alignmentFactor
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
+      propertyPath: targetAngleDiff
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 1582327518642755073, guid: 20b29334287135c43952acb60effa1b4, type: 3}
       propertyPath: separationFactor

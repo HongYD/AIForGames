@@ -322,10 +322,15 @@ MonoBehaviour:
     m_Bits: 1024
   neighborRadius: 3
   alignmentFactor: 2
-  cohesionFactor: 1
+  cohesionFactor: 5
   separationFlockingFactor: 10
   seekFactor: 4
-  alignFactor: 1.5
+  alignFactor: 10
+  slowAngleDiff: 45
+  targetAngleDiff: 0.1
+  timeToTarget: 0.1
+  maxAngularAcceleration: 90
+  maxRotation: 5
 --- !u!1 &4728924327285043734
 GameObject:
   m_ObjectHideFlags: 0
