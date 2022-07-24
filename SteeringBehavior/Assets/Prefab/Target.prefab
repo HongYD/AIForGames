@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8164698647345020595}
   - component: {fileID: 8741752850580101578}
   - component: {fileID: 6516044418111006471}
-  - component: {fileID: 1464152797}
+  - component: {fileID: 167205404178594498}
   m_Layer: 11
   m_Name: Target
   m_TagString: Untagged
@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f75b86b79e58d9a4d9b02083f289b58b, type: 2}
+  - {fileID: 2100000, guid: e69ad302838435a479e1b81c710d42be, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -82,7 +82,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &1464152797
+--- !u!114 &167205404178594498
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -91,8 +91,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 7136796147847517776}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fdcc2afe494db184e97c66e696182b77, type: 3}
+  m_Script: {fileID: 11500000, guid: a972ec8f31594bb418f1ee2a37f7d3fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 3
+  radius: 1
   positionToMouse: 1
