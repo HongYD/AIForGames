@@ -10,6 +10,16 @@ public class Bullet : MonoBehaviour
         
     }
 
+    private void OnEnable()
+    {
+        
+    }
+
+    private void OnDisable()
+    {
+        
+    }
+
     // Update is called once per frame
     void Update()
     {
