@@ -13,7 +13,6 @@ public class Cannon : MonoBehaviour
     }
 
     public GameObject target;
-    public GameObject bullet;
     public float muzzleV;
     public Vector3 gravity;
     public int bulletTrajectoryLen;
@@ -22,13 +21,18 @@ public class Cannon : MonoBehaviour
     private GameObject _muzzle;
     private GameObject _tube;
     private GameObject _tail;
+    public GameObject bulletPrefab;
     private Vector3 _curFireDir;
     private Vector3 _culcDir;
     private Vector3 _preCulcDir;
     private List<Vector3> _bulleyTrajectory;
+    private List<Bullet> bullets;
     private float frameRate = 1.0f / 30.0f;
     [SerializeField]
     private float _time;
+    [Range(0f, 1.0f)]
+    public float speedOffSet = 0.1f;
+
     
     // Start is called before the first frame update
     void Start()
@@ -42,6 +46,7 @@ public class Cannon : MonoBehaviour
         _tube.transform.rotation = Quaternion.LookRotation(_curFireDir);
         _culcDir = Vector3.zero;
         _preCulcDir = Vector3.zero;
+        bullets = new List<Bullet>();
         _bulleyTrajectory = new List<Vector3>();
         _time = 0;
     }
@@ -51,6 +56,11 @@ public class Cannon : MonoBehaviour
     {
         FixCannon();
         CalculateBulletTrajectory();
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            ShootBullet();
+        }
+        UpdateBullet();
     }
 
     Vector3 CalculateFiringSolution(Vector3 start, Vector3 end, out float ttt)
@@ -97,8 +107,22 @@ public class Cannon : MonoBehaviour
 
     void ShootBullet()
     {
-        GameObject.Instantiate(bullet, _muzzle.transform.position, Quaternion.identity);
-        _state = CannonState.Shoot;
+        Bullet b = new Bullet(_bulleyTrajectory, _muzzle.transform.position,bulletPrefab);
+        bullets.Add(b);
+    }
+
+    void UpdateBullet()
+    {
+        if (bullets.Count > 0)
+        {
+            for (int i = 0; i < bullets.Count; i++)
+            {
+                if (bullets[i].bullet != null)
+                {
+                    bullets[i].OnUpdate();
+                }
+            }
+        }
     }
 
     void FixCannon()
@@ -138,11 +162,10 @@ public class Cannon : MonoBehaviour
         float t = 0;
         for (int i = 0; i < bulletTrajectoryLen && t <_time; i++)
         {
-            t += _time * frameRate;
+            t += _time * frameRate * speedOffSet;
             Vector3 pt = p0 + _culcDir * muzzleV * t + (gravity * t * t) / 2;
             _bulleyTrajectory.Add(pt);
-        }
-        
+        }        
     }
 
     private void OnDrawGizmos()
@@ -151,7 +174,7 @@ public class Cannon : MonoBehaviour
         {
             for (int i = 0; i < _bulleyTrajectory.Count; i++)
             {
-                Gizmos.color = Color.yellow;
+                Gizmos.color = Color.red;
                 Gizmos.DrawSphere(_bulleyTrajectory[i], 0.1f);
             }
         }

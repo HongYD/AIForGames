@@ -228,10 +228,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8892096526712392913, guid: 59057dd663af4c14ab2a8b0978a07f38, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: aac5cdb2f9c56d44292f7ee34624b3ff, type: 2}
     - target: {fileID: 8892096526712392915, guid: 59057dd663af4c14ab2a8b0978a07f38, type: 3}
       propertyPath: m_Name
       value: Floor
@@ -373,10 +369,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 167205404178594498, guid: b5a472d4eb9bd51448a9b13910fb077a, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 167205404178594498, guid: b5a472d4eb9bd51448a9b13910fb077a, type: 3}
       propertyPath: positionToMouse
       value: 1
       objectReference: {fileID: 0}
@@ -447,12 +439,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2088370414, guid: 997eda0f844715845a30121b4553e2fd, type: 3}
       propertyPath: gravity.y
-      value: -15
+      value: -9.8
       objectReference: {fileID: 0}
     - target: {fileID: 2088370414, guid: 997eda0f844715845a30121b4553e2fd, type: 3}
-      propertyPath: bulletTrajectoryLen
-      value: 400
+      propertyPath: speedOffSet
+      value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 2088370414, guid: 997eda0f844715845a30121b4553e2fd, type: 3}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 1240887441953726, guid: 8a976dcd328a4664c85144f33b9c46b0, type: 3}
     - target: {fileID: 1674050128692650, guid: 997eda0f844715845a30121b4553e2fd, type: 3}
       propertyPath: m_Name
       value: Cannon
