@@ -32,8 +32,12 @@ public class Cannon : MonoBehaviour
     private float _time;
     [Range(0f, 1.0f)]
     public float speedOffSet = 0.1f;
+    [Range(0f, 5f)]
+    public float shootingFrequency = 1.0f;
+    private float shootingTime;
 
-    
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,17 +53,28 @@ public class Cannon : MonoBehaviour
         bullets = new List<Bullet>();
         _bulleyTrajectory = new List<Vector3>();
         _time = 0;
+        shootingTime = 0.0f;
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         FixCannon();
         CalculateBulletTrajectory();
-        if (Input.GetKeyUp(KeyCode.Space))
+        if (shootingTime >= shootingFrequency)
         {
             ShootBullet();
+            shootingTime = 0.0f;
         }
+        else
+        {
+            shootingTime += Time.deltaTime;
+        }
+        //if (Input.GetKeyUp(KeyCode.Space))
+        //{
+        //    ShootBullet();
+        //}
         UpdateBullet();
     }
 
