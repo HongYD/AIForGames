@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8216643598664397647}
+  - component: {fileID: 6053130457620557304}
   m_Layer: 0
   m_Name: JumpTile
   m_TagString: Untagged
@@ -33,6 +34,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6053130457620557304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8216643598664397646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38c34f573978231428d65be03d557fd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpLocation: {x: 0, y: 0, z: 0}
+  landingLocation: {x: 0, y: 0, z: 0}
+  deltaPosition: {x: 0, y: 0, z: 0}
 --- !u!1001 &8216643597759306672
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -148,7 +164,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 301348588467942094, guid: 4fbc329758237de4aac3a0409562a630, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 301348588467942094, guid: 4fbc329758237de4aac3a0409562a630, type: 3}
       propertyPath: m_LocalPosition.z

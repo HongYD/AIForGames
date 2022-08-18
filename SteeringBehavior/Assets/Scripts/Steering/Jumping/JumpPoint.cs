@@ -2,13 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public struct JumpPoint
+public class JumpPoint: MonoBehaviour
 {
     public Vector3 jumpLocation;
     public Vector3 landingLocation;
-    private Vector3 deltaPosition;
-    public Vector3 DeltaPosition
+    public Vector3 deltaPosition;
+    private void Start()
     {
-        get { return landingLocation - jumpLocation; }
+        jumpLocation = this.transform.GetChild(0).transform.position;
+        landingLocation = this.transform.GetChild(1).transform.position;
+        deltaPosition = landingLocation - jumpLocation;
     }
 }
