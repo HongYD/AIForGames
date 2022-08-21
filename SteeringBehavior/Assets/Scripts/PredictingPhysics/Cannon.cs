@@ -62,7 +62,7 @@ public class Cannon : MonoBehaviour
         
         FixCannon();
         CalculateBulletTrajectory();
-        if (shootingTime >= shootingFrequency)
+        if (shootingTime >= shootingFrequency && target !=null)
         {
             ShootBullet();
             shootingTime = 0.0f;
