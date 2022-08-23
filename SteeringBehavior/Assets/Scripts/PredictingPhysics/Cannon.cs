@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Cannon : MonoBehaviour
+public class Cannon : MonoBehaviour, Observer
 {
     private enum CannonState
     {
@@ -12,7 +12,7 @@ public class Cannon : MonoBehaviour
         Shoot
     }
 
-    public GameObject target;
+    private GameObject target;
     public float muzzleV;
     public Vector3 gravity;
     public int bulletTrajectoryLen;
@@ -35,12 +35,14 @@ public class Cannon : MonoBehaviour
     [Range(0f, 5f)]
     public float shootingFrequency = 1.0f;
     private float shootingTime;
+    private bool isTargetNull;
 
 
 
     // Start is called before the first frame update
     void Start()
     {
+        target = GameObject.Find("Player").gameObject;
         _state = CannonState.None;
         _cannon = this.gameObject;
         _muzzle = _cannon.transform.GetChild(0).GetChild(1).GetChild(0).gameObject;
@@ -54,28 +56,31 @@ public class Cannon : MonoBehaviour
         _bulleyTrajectory = new List<Vector3>();
         _time = 0;
         shootingTime = 0.0f;
+        isTargetNull = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-        FixCannon();
-        CalculateBulletTrajectory();
-        if (shootingTime >= shootingFrequency && target !=null)
+        if (!isTargetNull && target !=null)
         {
-            ShootBullet();
-            shootingTime = 0.0f;
+            FixCannon();
+            CalculateBulletTrajectory();
+            if (shootingTime >= shootingFrequency)
+            {
+                ShootBullet();
+                shootingTime = 0.0f;
+            }
+            else
+            {
+                shootingTime += Time.deltaTime;
+            }
+            //if (Input.GetKeyUp(KeyCode.Space))
+            //{
+            //    ShootBullet();
+            //}
+            UpdateBullet();
         }
-        else
-        {
-            shootingTime += Time.deltaTime;
-        }
-        //if (Input.GetKeyUp(KeyCode.Space))
-        //{
-        //    ShootBullet();
-        //}
-        UpdateBullet();
     }
 
     Vector3 CalculateFiringSolution(Vector3 start, Vector3 end, out float ttt)
@@ -193,5 +198,16 @@ public class Cannon : MonoBehaviour
                 Gizmos.DrawSphere(_bulleyTrajectory[i], 0.1f);
             }
         }
+    }
+
+    public void Receive(GameObject newTarget)
+    {
+        isTargetNull = false;
+        target = newTarget;
+    }
+
+    public void Receive()
+    {
+        isTargetNull = true;
     }
 }

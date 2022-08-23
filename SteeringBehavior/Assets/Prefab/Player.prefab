@@ -211,7 +211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 10
-  maxAcceleration: 3
+  maxAcceleration: 2.5
   target: {fileID: 0}
   targetRadius: 0.1
   slowRadius: 5
@@ -376,7 +376,7 @@ MonoBehaviour:
   _maxYSpeed: 7
   gravity: {x: 0, y: -9.8, z: 0}
   _stateMachine: 0
-  jumpSpeed: 3
+  jumpSpeed: 2
 --- !u!1 &4728924327285043734
 GameObject:
   m_ObjectHideFlags: 0

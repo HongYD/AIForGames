@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public abstract class Observer
+public interface Observer
 {
     public abstract void Receive();
 }

@@ -168,6 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayerEnmpty: 0
+  _playerPrefab: {fileID: 4728924326747484625, guid: b1f1df74863b6394f8a52bb8957b80ff, type: 3}
 --- !u!1001 &309823486
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -415,6 +416,16 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 301348588467942094, guid: 4fbc329758237de4aac3a0409562a630, type: 3}
   m_PrefabInstance: {fileID: 604779585}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &610444630 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3242676663631946332, guid: ffb21d724dceb704c8e7a48bb920dc9b, type: 3}
+  m_PrefabInstance: {fileID: 1908038489}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &619852668 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3242676662631974856, guid: ffb21d724dceb704c8e7a48bb920dc9b, type: 3}
+  m_PrefabInstance: {fileID: 1908038489}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &693331098
 GameObject:
@@ -1519,6 +1530,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 693331099}
     m_Modifications:
+    - target: {fileID: 6053130457620557304, guid: ffb21d724dceb704c8e7a48bb920dc9b, type: 3}
+      propertyPath: jumpLocation
+      value: 
+      objectReference: {fileID: 610444630}
+    - target: {fileID: 6053130457620557304, guid: ffb21d724dceb704c8e7a48bb920dc9b, type: 3}
+      propertyPath: landingLocation
+      value: 
+      objectReference: {fileID: 619852668}
     - target: {fileID: 8216643598664397646, guid: ffb21d724dceb704c8e7a48bb920dc9b, type: 3}
       propertyPath: m_Name
       value: JumpTile
@@ -1597,37 +1616,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2088370414, guid: 997eda0f844715845a30121b4553e2fd, type: 3}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 1924815179}
-    - target: {fileID: 2088370414, guid: 997eda0f844715845a30121b4553e2fd, type: 3}
-      propertyPath: muzzleV
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 2088370414, guid: 997eda0f844715845a30121b4553e2fd, type: 3}
-      propertyPath: gravity.y
-      value: -9.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 2088370414, guid: 997eda0f844715845a30121b4553e2fd, type: 3}
-      propertyPath: speedOffSet
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2088370414, guid: 997eda0f844715845a30121b4553e2fd, type: 3}
-      propertyPath: bulletPrefab
-      value: 
-      objectReference: {fileID: 1240887441953726, guid: 8a976dcd328a4664c85144f33b9c46b0, type: 3}
-    - target: {fileID: 2088370414, guid: 997eda0f844715845a30121b4553e2fd, type: 3}
-      propertyPath: shootingFrequency
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1674050128692650, guid: 997eda0f844715845a30121b4553e2fd, type: 3}
       propertyPath: m_Name
       value: Cannon
-      objectReference: {fileID: 0}
-    - target: {fileID: 1674050128692650, guid: 997eda0f844715845a30121b4553e2fd, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4509344712265162, guid: 997eda0f844715845a30121b4553e2fd, type: 3}
       propertyPath: m_RootOrder

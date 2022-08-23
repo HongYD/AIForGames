@@ -10,7 +10,7 @@ public enum JumpStateMachine
     Jump,
     Land
 }
-public class Jump : SteeringBase
+public class Jump : SteeringBase, Subject
 {
     public JumpPoint _jumpPoint;
     public Transform finalTarget;
@@ -25,7 +25,15 @@ public class Jump : SteeringBase
     private bool _isReachedFirstTarget;
     private int _jumpIndex;
     public float jumpSpeed = 2.0f;
-    
+    private List<GameObject> _observers = new List<GameObject>();
+    private GameObject Creator;
+
+    private void OnEnable()
+    {
+        Creator = GameObject.Find("Creator");
+        Attach(Creator);
+
+    }
 
     private void Start()
     {
@@ -45,6 +53,7 @@ public class Jump : SteeringBase
             }
             if(_isReachedFirstTarget && GetXZDistance(finalTarget.position) < 0.1f)
             {
+                Notify();
                 Destroy(this.gameObject);
             }
         }
@@ -77,7 +86,12 @@ public class Jump : SteeringBase
         {
             ScheduleJumpAction(_jumpTrajectory);
         }
-        if(_jumpTrajectory.Count > 0 && _jumpIndex<_jumpTrajectory.Count)
+        
+    }
+
+    private void LateUpdate()
+    {
+        if (_jumpTrajectory.Count > 0 && _jumpIndex < _jumpTrajectory.Count)
         {
             this.transform.position = _jumpTrajectory[_jumpIndex];
             _jumpIndex++;
@@ -147,6 +161,24 @@ public class Jump : SteeringBase
                 Gizmos.color = Color.cyan;
                 Gizmos.DrawSphere(_jumpTrajectory[i], 0.1f);
             }
+        }
+    }
+
+    public void Attach(GameObject observer)
+    {
+        _observers.Add(observer);
+    }
+
+    public void Detach(GameObject observer)
+    {
+        _observers.Remove(observer);
+    }
+
+    public void Notify()
+    {
+        foreach (var o in _observers)
+        {
+            o.GetComponent<PlayerCreator>().Receive();
         }
     }
 }
