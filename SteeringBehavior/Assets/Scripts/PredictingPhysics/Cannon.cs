@@ -192,7 +192,7 @@ public class Cannon : MonoBehaviour, Observer
     {
         if (_bulleyTrajectory != null && _bulleyTrajectory.Count > 0)
         {
-            for (int i = 0; i < _bulleyTrajectory.Count; i++)
+            for (int i = 0; i < _bulleyTrajectory.Count; i+=2)
             {
                 Gizmos.color = Color.red;
                 Gizmos.DrawSphere(_bulleyTrajectory[i], 0.1f);

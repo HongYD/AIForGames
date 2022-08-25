@@ -13,16 +13,28 @@ public class PlayerCreator : MonoBehaviour, Observer, Subject
         isPlayerEnmpty = false;
         _cannons = new List<GameObject>();
         GameObject c1 = GameObject.Find("Cannon");
-        Attach(c1);
+        if (c1 != null)
+        {
+            Attach(c1);
+        }
 
         GameObject c2 = GameObject.Find("Cannon (1)");
-        Attach(c2);
+        if (c2 != null)
+        {
+            Attach(c2);
+        }
 
         GameObject c3 = GameObject.Find("Cannon (2)");
-        Attach(c3);
+        if (c3 != null)
+        {
+            Attach(c3);
+        }
 
         GameObject c4 = GameObject.Find("Cannon (3)");
-        Attach(c4);
+        if (c4 != null)
+        {
+            Attach(c4);
+        }
 
     }
     public void Receive()
