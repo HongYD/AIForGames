@@ -30,13 +30,13 @@ public class SelectionManager : MonoBehaviour
     public GameObject selectedPlayer;
     public List<GameObject> players = new List<GameObject>();
     //FSM 
-    public enum SelectFSM
+    public enum SelectEvent
     {
         clickOrDrag,
         clickSelect,
         clickDeselect
     }
-    public SelectFSM selectFSM;
+    public SelectEvent selectFSM;
 
     #endregion
     private void Awake()
@@ -67,13 +67,13 @@ public class SelectionManager : MonoBehaviour
     {
         switch (selectFSM)
         {
-            case SelectFSM.clickOrDrag:
+            case SelectEvent.clickOrDrag:
                 ClickOrDrag();
                 break;
-            case SelectFSM.clickSelect:
+            case SelectEvent.clickSelect:
                 SelectSingleUnit();
                 break;
-            case SelectFSM.clickDeselect:
+            case SelectEvent.clickDeselect:
                 DeselectAll();
                 break;
         }
@@ -97,11 +97,21 @@ public class SelectionManager : MonoBehaviour
                 //click to select unit, or click the ground to deselect all
                 if (hit.collider.gameObject.tag == "Player")
                 {
-                    selectedPlayer = hit.collider.gameObject;
-                    selectFSM = SelectFSM.clickSelect;
+                    if (selectedPlayer == null || (selectedPlayer != null && selectedPlayer != hit.collider.gameObject))
+                    {
+                        selectedPlayer = hit.collider.gameObject;
+                        selectFSM = SelectEvent.clickSelect;
+                    }
+                    else if(selectedPlayer != null && selectedPlayer == hit.collider.gameObject)
+                    {
+                        selectedPlayer = null;
+                        selectFSM = SelectEvent.clickDeselect;
+                    }
                 }
                 else if (hit.collider.gameObject.tag == "Ground")
-                    selectFSM = SelectFSM.clickDeselect;
+                {
+                    selectFSM = SelectEvent.clickDeselect;
+                }
             }
             else if (Input.GetMouseButtonDown(0) && Input.GetKey(KeyCode.LeftShift))
             {
@@ -124,6 +134,14 @@ public class SelectionManager : MonoBehaviour
             {
                 mouseDragging = false;
             }
+            else
+            {
+                mouseDragging = false;
+            }
+        }
+        else
+        {
+            mouseDragging = false;
         }
     }
 
@@ -142,7 +160,7 @@ public class SelectionManager : MonoBehaviour
             else if (currentlySelectedPlayers.Count == 0)
             {
                 AddToCurrentlySelectedUnits(selectedPlayer);
-                selectFSM = SelectFSM.clickOrDrag;
+                selectFSM = SelectEvent.clickOrDrag;
             }
         }
         else
@@ -223,7 +241,7 @@ public class SelectionManager : MonoBehaviour
         }
         else if (currentlySelectedPlayers.Count == 0)
         {
-            selectFSM = SelectFSM.clickOrDrag;
+            selectFSM = SelectEvent.clickOrDrag;
         }
     }
 
