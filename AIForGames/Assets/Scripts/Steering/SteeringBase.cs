@@ -66,7 +66,7 @@ public class SteeringBase : MonoBehaviour
         kinematic.velocity += steeringOutput.linear * Time.deltaTime;
         kinematic.rotation += steeringOutput.angular * Time.deltaTime;
 
-        transform.position = new Vector3(kinematic.position.x, 2.42f, kinematic.position.z);
+        transform.position = new Vector3(kinematic.position.x, 1.0f, kinematic.position.z);
         transform.rotation = Quaternion.Euler(new Vector3(0, kinematic.orientation, 0));
 
         if (kinematic.velocity.magnitude > maxSpeed)

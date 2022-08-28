@@ -29,7 +29,7 @@ public class Arrive : SteeringBase
     void Start()
     {
         base.Start();
-        this.transform.position = new Vector3(this.transform.position.x, 2.26f, this.transform.position.z);
+        this.transform.position = new Vector3(this.transform.position.x, 1.0f, this.transform.position.z);
     }
 
     // Update is called once per frame
