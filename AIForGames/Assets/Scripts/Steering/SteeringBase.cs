@@ -2,22 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public struct Kinematic
+{
+    public Vector3 position;
+    public float orientation;//面向
+    public Vector3 velocity;
+    public float rotation;//角速度
+}
+
+public struct SteeringOutput
+{
+    public Vector3 linear;
+    public float angular;
+}
+
 public class SteeringBase : MonoBehaviour
 {
-    public struct Kinematic
-    {
-        public Vector3 position;
-        public float orientation;//面向
-        public Vector3 velocity;
-        public float rotation;//角速度
-    }
-
-    public struct SteeringOutput
-    {
-        public Vector3 linear;
-        public float angular;
-    }
-
     protected Kinematic kinematic;
     protected SteeringOutput steeringOutput;
     [SerializeField]

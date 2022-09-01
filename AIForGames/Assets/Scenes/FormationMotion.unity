@@ -140,7 +140,7 @@ PrefabInstance:
       objectReference: {fileID: 1903093787}
     - target: {fileID: 1548148384139944858, guid: b1f1df74863b6394f8a52bb8957b80ff, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1548148384139944858, guid: b1f1df74863b6394f8a52bb8957b80ff, type: 3}
       propertyPath: maxRotation
@@ -354,7 +354,7 @@ PrefabInstance:
       objectReference: {fileID: 1903093787}
     - target: {fileID: 1548148384139944858, guid: b1f1df74863b6394f8a52bb8957b80ff, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1548148384139944858, guid: b1f1df74863b6394f8a52bb8957b80ff, type: 3}
       propertyPath: maxRotation
@@ -674,7 +674,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7136796147847517776, guid: b5a472d4eb9bd51448a9b13910fb077a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8164698647345020595, guid: b5a472d4eb9bd51448a9b13910fb077a, type: 3}
       propertyPath: m_RootOrder
@@ -739,7 +739,7 @@ PrefabInstance:
       objectReference: {fileID: 1903093787}
     - target: {fileID: 1548148384139944858, guid: b1f1df74863b6394f8a52bb8957b80ff, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1548148384139944858, guid: b1f1df74863b6394f8a52bb8957b80ff, type: 3}
       propertyPath: maxRotation
@@ -828,7 +828,7 @@ PrefabInstance:
       objectReference: {fileID: 1903093787}
     - target: {fileID: 1548148384139944858, guid: b1f1df74863b6394f8a52bb8957b80ff, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1548148384139944858, guid: b1f1df74863b6394f8a52bb8957b80ff, type: 3}
       propertyPath: maxRotation
@@ -917,7 +917,7 @@ PrefabInstance:
       objectReference: {fileID: 1903093787}
     - target: {fileID: 1548148384139944858, guid: b1f1df74863b6394f8a52bb8957b80ff, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1548148384139944858, guid: b1f1df74863b6394f8a52bb8957b80ff, type: 3}
       propertyPath: maxRotation
@@ -1006,7 +1006,7 @@ PrefabInstance:
       objectReference: {fileID: 1903093787}
     - target: {fileID: 1548148384139944858, guid: b1f1df74863b6394f8a52bb8957b80ff, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1548148384139944858, guid: b1f1df74863b6394f8a52bb8957b80ff, type: 3}
       propertyPath: maxRotation
@@ -1095,7 +1095,7 @@ PrefabInstance:
       objectReference: {fileID: 1903093787}
     - target: {fileID: 1548148384139944858, guid: b1f1df74863b6394f8a52bb8957b80ff, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1548148384139944858, guid: b1f1df74863b6394f8a52bb8957b80ff, type: 3}
       propertyPath: maxRotation
@@ -1184,7 +1184,7 @@ PrefabInstance:
       objectReference: {fileID: 1903093787}
     - target: {fileID: 1548148384139944858, guid: b1f1df74863b6394f8a52bb8957b80ff, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1548148384139944858, guid: b1f1df74863b6394f8a52bb8957b80ff, type: 3}
       propertyPath: maxRotation
@@ -1267,6 +1267,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1903093787}
+    - target: {fileID: 1548148384139944858, guid: b1f1df74863b6394f8a52bb8957b80ff, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4728924326747484625, guid: b1f1df74863b6394f8a52bb8957b80ff, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1339,7 +1343,7 @@ PrefabInstance:
       objectReference: {fileID: 1903093787}
     - target: {fileID: 1548148384139944858, guid: b1f1df74863b6394f8a52bb8957b80ff, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1548148384139944858, guid: b1f1df74863b6394f8a52bb8957b80ff, type: 3}
       propertyPath: maxRotation

@@ -26,7 +26,7 @@ public class Target : MonoBehaviour
 
     void Update()
     {
-        if (positionToMouse)
+        if (positionToMouse && Input.GetMouseButtonDown(1))
         {
             SetPositionTowardsMouseCursor();
         }

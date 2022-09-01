@@ -2,23 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public struct KinematicOutput
+{
+    public Vector3 outputVelocity;
+    public float outputRotation;
+}
+
 public class KinematicBase : MonoBehaviour
 {
 
-    public struct Kinematic
-    {
-        public Vector3 position;
-        public float orientation;
-        public Vector3 velocity;
-        public float rotation;
-    }
-
-    public struct KinematicOutput
-    {
-        public Vector3 outputVelocity;
-        public float outputRotation;
-    }
-
+    //public struct Kinematic
+    //{
+    //    public Vector3 position;
+    //    public float orientation;
+    //    public Vector3 velocity;
+    //    public float rotation;
+    //}
     protected Kinematic kinematic;
     protected KinematicOutput kinematicOutput;
     [SerializeField]
