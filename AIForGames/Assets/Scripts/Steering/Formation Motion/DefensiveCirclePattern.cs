@@ -33,8 +33,8 @@ public class DefensiveCirclePattern : IFormationPattern
     {
         //每一个slot所处的角度
         Kinematic location = new Kinematic();
-        float angleAroundCircle = slotNumber / numberOfSlots * Mathf.PI * 2;
-        float radius = characterRadius / Mathf.Sin(Mathf.PI / numberOfSlots);
+        float angleAroundCircle = ((float)slotNumber / (float)numberOfSlots) * Mathf.PI * 2.0f;
+        float radius = characterRadius / Mathf.Sin(2.0f * Mathf.PI / numberOfSlots);
         location.position.x = radius * Mathf.Cos(angleAroundCircle);
         location.position.z = radius * Mathf.Sin(angleAroundCircle);
         location.orientation = angleAroundCircle;
@@ -46,7 +46,7 @@ public class DefensiveCirclePattern : IFormationPattern
         return true;
     }
 
-    public int calculateNumberOfSlots(List<SlotAssignment> assignments)
+    public void calculateNumberOfSlots(List<SlotAssignment> assignments)
     {
         //int filledSlots = 0;
         //int maxSlotNumber = 0;
@@ -57,6 +57,6 @@ public class DefensiveCirclePattern : IFormationPattern
         //}
         //numberOfSlots = filledSlots + 1;
         //return numberOfSlots;
-        return assignments.Count;
+        numberOfSlots = assignments.Count;
     }
 }

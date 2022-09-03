@@ -54,6 +54,10 @@ public class SteeringBase : MonoBehaviour
 
     }
 
+    public virtual void GetSteeringOutput(Vector3 target)
+    {
+        
+    }
     public virtual SteeringOutput GetSteeringOutput(Transform angent, List<Transform> neighbors)
     {
         return new SteeringOutput();

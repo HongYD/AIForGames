@@ -132,7 +132,6 @@ public class Flocking : SteeringBase
 
         steeringOutput.angular = output.angular + output1.angular + output2.angular;
         steeringOutput.angular += targetRotation * alignFactor;
-
     }
 
     private List<Transform> GetNearbyObjects()
