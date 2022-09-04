@@ -10,7 +10,7 @@ public enum JumpStateMachine
     Jump,
     Land
 }
-public class Jump : SteeringBase, Subject
+public class Jump : SteeringBase, ISubject
 {
     public JumpPoint _jumpPoint;
     public Transform finalTarget;

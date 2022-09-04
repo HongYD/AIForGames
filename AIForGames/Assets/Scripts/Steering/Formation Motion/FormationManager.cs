@@ -13,18 +13,32 @@ public class FormationManager : SteeringBase
 {
     public List<SlotAssignment> slotAssignments;
     public Kinematic driftOffset;
-    public DefensiveCirclePattern circlePattern;
+    //public DefensiveCirclePattern circlePattern;
+    public SquarePattern squarePattern;
+    private List<GameObject> selectedPlayers;
 
     private void Start()
     {
-        GameObject[] playerList = GameObject.FindGameObjectsWithTag("Player");
+        selectedPlayers = GameObject.Find("GameManager").GetComponent<SelectionManager>().currentlySelectedPlayersListInstance;
+        GameObject[] playerList = new GameObject[selectedPlayers.Count];
+        if (selectedPlayers != null && selectedPlayers.Count > 0)
+        {
+            playerList = selectedPlayers.ToArray();
+        }
+        else
+        {
+            playerList = GameObject.FindGameObjectsWithTag("Player");
+        }
         slotAssignments = new List<SlotAssignment>();
-        circlePattern = new DefensiveCirclePattern();
-        circlePattern.characterRadius = 2.0f;
+        squarePattern = new SquarePattern();
+        squarePattern.characterRadius = 1.0f;
+        //circlePattern = new DefensiveCirclePattern();
+        //circlePattern.characterRadius = 2.0f;
         for (int i = 0; i < playerList.Length; i++)
         {
             AddCharacter(playerList[i]);
-            circlePattern.calculateNumberOfSlots(slotAssignments);
+            squarePattern.calculateNumberOfSlots(slotAssignments);
+            //circlePattern.calculateNumberOfSlots(slotAssignments);
         }      
         UpdateSlotAssignments();
         for(int i = 0; i < slotAssignments.Count; i++)
@@ -44,18 +58,27 @@ public class FormationManager : SteeringBase
         {
             slotAssignments[i].slotNumber = i;
         }
-        driftOffset = circlePattern.GetDriftOffset(slotAssignments);
+        //driftOffset = circlePattern.GetDriftOffset(slotAssignments);
+        driftOffset = squarePattern.GetDriftOffset(slotAssignments);
     }
 
     public bool AddCharacter(GameObject character)
     {
         int occupiedSlots = slotAssignments.Count;
-        if (circlePattern.supportSlots(occupiedSlots + 1))
+        //if (circlePattern.supportSlots(occupiedSlots + 1))
+        //{
+        //    SlotAssignment slotAssignment = new SlotAssignment();
+        //    slotAssignment.player = character;
+        //    slotAssignments.Add(slotAssignment);
+        //    circlePattern.calculateNumberOfSlots(slotAssignments);
+        //    return true;
+        //}
+        if (squarePattern.supportSlots(occupiedSlots + 1))
         {
             SlotAssignment slotAssignment = new SlotAssignment();
             slotAssignment.player = character;
             slotAssignments.Add(slotAssignment);
-            circlePattern.calculateNumberOfSlots(slotAssignments);
+            squarePattern.calculateNumberOfSlots(slotAssignments);
             return true;
         }
         return false;
@@ -78,7 +101,8 @@ public class FormationManager : SteeringBase
         Vector3 anchorPos = GetAnchorPoint();
         for(int i = 0; i < slotAssignments.Count; i++)
         {
-            Kinematic relativeLoc = circlePattern.GetSlotLocation(slotAssignments[i].slotNumber);
+            //Kinematic relativeLoc = circlePattern.GetSlotLocation(slotAssignments[i].slotNumber);
+            Kinematic relativeLoc = squarePattern.GetSlotLocation(slotAssignments[i].slotNumber);
             Kinematic location = new Kinematic();
             location.position = relativeLoc.position + anchorPos;
             location.position -= driftOffset.position;
@@ -110,5 +134,4 @@ public class FormationManager : SteeringBase
         faceDir = faceDir.normalized;
         return faceDir;
     }
-
 }

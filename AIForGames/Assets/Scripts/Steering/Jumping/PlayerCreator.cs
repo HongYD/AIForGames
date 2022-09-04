@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerCreator : MonoBehaviour, Observer, Subject
+public class PlayerCreator : MonoBehaviour, IObserver, ISubject
 {
     public bool isPlayerEnmpty;
     public GameObject _playerPrefab;

@@ -143,6 +143,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1548148384139944858, guid: b1f1df74863b6394f8a52bb8957b80ff, type: 3}
+      propertyPath: slowRadius
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1548148384139944858, guid: b1f1df74863b6394f8a52bb8957b80ff, type: 3}
       propertyPath: maxRotation
       value: 90
       objectReference: {fileID: 0}
@@ -355,6 +359,10 @@ PrefabInstance:
     - target: {fileID: 1548148384139944858, guid: b1f1df74863b6394f8a52bb8957b80ff, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1548148384139944858, guid: b1f1df74863b6394f8a52bb8957b80ff, type: 3}
+      propertyPath: slowRadius
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1548148384139944858, guid: b1f1df74863b6394f8a52bb8957b80ff, type: 3}
       propertyPath: maxRotation
@@ -742,6 +750,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1548148384139944858, guid: b1f1df74863b6394f8a52bb8957b80ff, type: 3}
+      propertyPath: slowRadius
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1548148384139944858, guid: b1f1df74863b6394f8a52bb8957b80ff, type: 3}
       propertyPath: maxRotation
       value: 90
       objectReference: {fileID: 0}
@@ -829,6 +841,10 @@ PrefabInstance:
     - target: {fileID: 1548148384139944858, guid: b1f1df74863b6394f8a52bb8957b80ff, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1548148384139944858, guid: b1f1df74863b6394f8a52bb8957b80ff, type: 3}
+      propertyPath: slowRadius
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1548148384139944858, guid: b1f1df74863b6394f8a52bb8957b80ff, type: 3}
       propertyPath: maxRotation
@@ -920,6 +936,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1548148384139944858, guid: b1f1df74863b6394f8a52bb8957b80ff, type: 3}
+      propertyPath: slowRadius
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1548148384139944858, guid: b1f1df74863b6394f8a52bb8957b80ff, type: 3}
       propertyPath: maxRotation
       value: 90
       objectReference: {fileID: 0}
@@ -1007,6 +1027,10 @@ PrefabInstance:
     - target: {fileID: 1548148384139944858, guid: b1f1df74863b6394f8a52bb8957b80ff, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1548148384139944858, guid: b1f1df74863b6394f8a52bb8957b80ff, type: 3}
+      propertyPath: slowRadius
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1548148384139944858, guid: b1f1df74863b6394f8a52bb8957b80ff, type: 3}
       propertyPath: maxRotation
@@ -1098,6 +1122,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1548148384139944858, guid: b1f1df74863b6394f8a52bb8957b80ff, type: 3}
+      propertyPath: slowRadius
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1548148384139944858, guid: b1f1df74863b6394f8a52bb8957b80ff, type: 3}
       propertyPath: maxRotation
       value: 90
       objectReference: {fileID: 0}
@@ -1187,6 +1215,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1548148384139944858, guid: b1f1df74863b6394f8a52bb8957b80ff, type: 3}
+      propertyPath: slowRadius
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1548148384139944858, guid: b1f1df74863b6394f8a52bb8957b80ff, type: 3}
       propertyPath: maxRotation
       value: 90
       objectReference: {fileID: 0}
@@ -1266,6 +1298,10 @@ PrefabInstance:
     - target: {fileID: 1548148384139944858, guid: b1f1df74863b6394f8a52bb8957b80ff, type: 3}
       propertyPath: target
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1548148384139944858, guid: b1f1df74863b6394f8a52bb8957b80ff, type: 3}
+      propertyPath: slowRadius
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4728924326747484625, guid: b1f1df74863b6394f8a52bb8957b80ff, type: 3}
       propertyPath: m_Name
@@ -1381,6 +1417,10 @@ PrefabInstance:
     - target: {fileID: 1548148384139944858, guid: b1f1df74863b6394f8a52bb8957b80ff, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1548148384139944858, guid: b1f1df74863b6394f8a52bb8957b80ff, type: 3}
+      propertyPath: slowRadius
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1548148384139944858, guid: b1f1df74863b6394f8a52bb8957b80ff, type: 3}
       propertyPath: maxRotation

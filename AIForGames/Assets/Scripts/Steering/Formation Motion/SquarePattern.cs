@@ -2,24 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DefensiveCirclePattern : IFormationPattern
+public class SquarePattern : IFormationPattern
 {
     private int numberOfSlots;
     public float characterRadius;
-
-
-    //calculate average position and orienation of slot character(assignments)
+    float xOffset = 0.5f;
+    float zOffset = 0.5f;
     public Kinematic GetDriftOffset(List<SlotAssignment> assignments)
     {
         Kinematic center = new Kinematic();
-        for(int i = 0; i < assignments.Count; i++)
+        for (int i = 0; i < assignments.Count; i++)
         {
             Kinematic location = GetSlotLocation(assignments[i].slotNumber);
             center.position += location.position;
             center.orientation += location.orientation;
         }
         int numberOfAssignment = assignments.Count;
-        if(numberOfAssignment > 0)
+        if (numberOfAssignment > 0)
         {
             center.position /= numberOfAssignment;
             center.orientation /= numberOfAssignment;
@@ -27,17 +26,16 @@ public class DefensiveCirclePattern : IFormationPattern
         return center;
     }
 
-
     public Kinematic GetSlotLocation(int slotNumber)
     {
-        //每一个slot所处的角度
         Kinematic location = new Kinematic();
-        float angleAroundCircle = ((float)slotNumber / (float)numberOfSlots) * Mathf.PI * 2.0f;
-        float radius = characterRadius / Mathf.Sin(2.0f * Mathf.PI / numberOfSlots);
-        location.position.x = radius * Mathf.Cos(angleAroundCircle);
-        location.position.z = radius * Mathf.Sin(angleAroundCircle);
-        location.orientation = angleAroundCircle;
+        int rows = Mathf.FloorToInt(Mathf.Sqrt(numberOfSlots));
+        int xLoc = slotNumber % rows;
+        int zLoc = Mathf.FloorToInt(slotNumber / rows);
+        location.position.x = xLoc + characterRadius * xLoc + xOffset * xLoc;
+        location.position.z = zLoc + characterRadius * zLoc + zOffset * zLoc;
         return location;
+
     }
 
     public bool supportSlots(int slotCount)
@@ -47,15 +45,6 @@ public class DefensiveCirclePattern : IFormationPattern
 
     public void calculateNumberOfSlots(List<SlotAssignment> assignments)
     {
-        //int filledSlots = 0;
-        //int maxSlotNumber = 0;
-        //for(int i = 0; i < assignments.Count; i++)
-        //{
-        //    if (assignments[i].slotNumber >= maxSlotNumber)
-        //        filledSlots = assignments[i].slotNumber;
-        //}
-        //numberOfSlots = filledSlots + 1;
-        //return numberOfSlots;
         numberOfSlots = assignments.Count;
     }
 }

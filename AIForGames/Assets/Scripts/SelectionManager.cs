@@ -23,7 +23,11 @@ public class SelectionManager : MonoBehaviour
     //gui
     public GUIStyle mouseDragSkin;
     //list and arrays
-    public List<GameObject> currentlySelectedPlayers = new List<GameObject>();
+    private List<GameObject> currentlySelectedPlayers = new List<GameObject>();
+    public List<GameObject> currentlySelectedPlayersListInstance
+    {
+        get { return currentlySelectedPlayers; }
+    }
     //bool
     public bool mouseDragging;
     //gameobjects
