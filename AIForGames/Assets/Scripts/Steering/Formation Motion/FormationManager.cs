@@ -14,7 +14,8 @@ public class FormationManager : SteeringBase
     public List<SlotAssignment> slotAssignments;
     public Kinematic driftOffset;
     //public DefensiveCirclePattern circlePattern;
-    public SquarePattern squarePattern;
+    //public SquarePattern squarePattern;
+    public TrianglePattern trianglePattern;
     private List<GameObject> selectedPlayers;
 
     private void Start()
@@ -30,15 +31,18 @@ public class FormationManager : SteeringBase
             playerList = GameObject.FindGameObjectsWithTag("Player");
         }
         slotAssignments = new List<SlotAssignment>();
-        squarePattern = new SquarePattern();
-        squarePattern.characterRadius = 1.0f;
+        //squarePattern = new SquarePattern();
+        //squarePattern.characterRadius = 1.0f;
         //circlePattern = new DefensiveCirclePattern();
         //circlePattern.characterRadius = 2.0f;
+        trianglePattern = new TrianglePattern();
+        trianglePattern.characterRadius = 1.0f;
         for (int i = 0; i < playerList.Length; i++)
         {
             AddCharacter(playerList[i]);
-            squarePattern.calculateNumberOfSlots(slotAssignments);
+            //squarePattern.calculateNumberOfSlots(slotAssignments);
             //circlePattern.calculateNumberOfSlots(slotAssignments);
+            trianglePattern.calculateNumberOfSlots(slotAssignments);
         }      
         UpdateSlotAssignments();
         for(int i = 0; i < slotAssignments.Count; i++)
@@ -59,7 +63,8 @@ public class FormationManager : SteeringBase
             slotAssignments[i].slotNumber = i;
         }
         //driftOffset = circlePattern.GetDriftOffset(slotAssignments);
-        driftOffset = squarePattern.GetDriftOffset(slotAssignments);
+        //driftOffset = squarePattern.GetDriftOffset(slotAssignments);
+        driftOffset = trianglePattern.GetDriftOffset(slotAssignments);
     }
 
     public bool AddCharacter(GameObject character)
@@ -73,12 +78,20 @@ public class FormationManager : SteeringBase
         //    circlePattern.calculateNumberOfSlots(slotAssignments);
         //    return true;
         //}
-        if (squarePattern.supportSlots(occupiedSlots + 1))
+        //if (squarePattern.supportSlots(occupiedSlots + 1))
+        //{
+        //    SlotAssignment slotAssignment = new SlotAssignment();
+        //    slotAssignment.player = character;
+        //    slotAssignments.Add(slotAssignment);
+        //    squarePattern.calculateNumberOfSlots(slotAssignments);
+        //    return true;
+        //}
+        if (trianglePattern.supportSlots(occupiedSlots + 1))
         {
             SlotAssignment slotAssignment = new SlotAssignment();
             slotAssignment.player = character;
             slotAssignments.Add(slotAssignment);
-            squarePattern.calculateNumberOfSlots(slotAssignments);
+            trianglePattern.calculateNumberOfSlots(slotAssignments);
             return true;
         }
         return false;
@@ -102,7 +115,8 @@ public class FormationManager : SteeringBase
         for(int i = 0; i < slotAssignments.Count; i++)
         {
             //Kinematic relativeLoc = circlePattern.GetSlotLocation(slotAssignments[i].slotNumber);
-            Kinematic relativeLoc = squarePattern.GetSlotLocation(slotAssignments[i].slotNumber);
+            //Kinematic relativeLoc = squarePattern.GetSlotLocation(slotAssignments[i].slotNumber);
+            Kinematic relativeLoc = trianglePattern.GetSlotLocation(slotAssignments[i].slotNumber);
             Kinematic location = new Kinematic();
             location.position = relativeLoc.position + anchorPos;
             location.position -= driftOffset.position;

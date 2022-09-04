@@ -4,23 +4,68 @@ using UnityEngine;
 
 public class TrianglePattern:IFormationPattern
 {
+    private int numberOfSlots;
+    public float characterRadius;
+    float xOffset = 1.0f;
+    float zOffset = 1.0f;
     public Kinematic GetDriftOffset(List<SlotAssignment> assignments)
     {
-        throw new System.NotImplementedException();
+        Kinematic center = new Kinematic();
+        for (int i = 0; i < assignments.Count; i++)
+        {
+            Kinematic location = GetSlotLocation(assignments[i].slotNumber);
+            center.position += location.position;
+            center.orientation += location.orientation;
+        }
+        int numberOfAssignment = assignments.Count;
+        if (numberOfAssignment > 0)
+        {
+            center.position /= numberOfAssignment;
+            center.orientation /= numberOfAssignment;
+        }
+        return center;
     }
 
     public Kinematic GetSlotLocation(int slotNumber)
     {
-        throw new System.NotImplementedException();
+        int rowNum = slotNumber;
+        int i = 0;
+        float xShift = characterRadius + xOffset;
+        while(rowNum > 0)
+        {
+            rowNum -= i;
+            if (rowNum > 0)
+            {
+                i++;
+            }
+            else
+            {
+                break;
+            }
+        }
+        int xLoc = 0;
+        int zLoc = 0;
+        if (rowNum == 0)
+            xLoc = rowNum;
+        else
+            xLoc = rowNum + i;
+        if (xLoc == 0)
+            zLoc = i;
+        else
+            zLoc = i - 1;
+        Kinematic location = new Kinematic();
+        location.position.x = xLoc + characterRadius * xLoc + xOffset * xLoc - xShift * zLoc;
+        location.position.z = zLoc + characterRadius * zLoc + zOffset * zLoc;
+        return location;
     }
 
     public bool supportSlots(int slotCount)
     {
-        throw new System.NotImplementedException();
+        return true;
     }
 
     public void calculateNumberOfSlots(List<SlotAssignment> assignments)
     {
-        throw new System.NotImplementedException();
+        numberOfSlots = assignments.Count;
     }
 }
