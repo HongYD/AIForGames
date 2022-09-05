@@ -2,14 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DefensiveCirclePattern : IFormationPattern
+public class DefensiveCirclePattern : FormationPattern
 {
-    private int numberOfSlots;
-    public float characterRadius;
-
-
     //calculate average position and orienation of slot character(assignments)
-    public Kinematic GetDriftOffset(List<SlotAssignment> assignments)
+
+    public override Kinematic GetDriftOffset(List<SlotAssignment> assignments)
     {
         Kinematic center = new Kinematic();
         for(int i = 0; i < assignments.Count; i++)
@@ -28,9 +25,10 @@ public class DefensiveCirclePattern : IFormationPattern
     }
 
 
-    public Kinematic GetSlotLocation(int slotNumber)
+    public override Kinematic GetSlotLocation(int slotNumber)
     {
         //每一个slot所处的角度
+        characterRadius = 2.0f;
         Kinematic location = new Kinematic();
         float angleAroundCircle = ((float)slotNumber / (float)numberOfSlots) * Mathf.PI * 2.0f;
         float radius = characterRadius / Mathf.Sin(2.0f * Mathf.PI / numberOfSlots);
@@ -40,12 +38,12 @@ public class DefensiveCirclePattern : IFormationPattern
         return location;
     }
 
-    public bool supportSlots(int slotCount)
+    public override bool supportSlots(int slotCount)
     {
         return true;
     }
 
-    public void calculateNumberOfSlots(List<SlotAssignment> assignments)
+    public override void calculateNumberOfSlots(List<SlotAssignment> assignments)
     {
         //int filledSlots = 0;
         //int maxSlotNumber = 0;

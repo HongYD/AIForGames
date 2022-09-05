@@ -2,13 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TrianglePattern:IFormationPattern
+public class TrianglePattern:FormationPattern
 {
-    private int numberOfSlots;
-    public float characterRadius;
-    float xOffset = 1.0f;
-    float zOffset = 1.0f;
-    public Kinematic GetDriftOffset(List<SlotAssignment> assignments)
+
+    public override Kinematic GetDriftOffset(List<SlotAssignment> assignments)
     {
         Kinematic center = new Kinematic();
         for (int i = 0; i < assignments.Count; i++)
@@ -26,7 +23,7 @@ public class TrianglePattern:IFormationPattern
         return center;
     }
 
-    public Kinematic GetSlotLocation(int slotNumber)
+    public override Kinematic GetSlotLocation(int slotNumber)
     {
         int rowNum = slotNumber;
         int i = 0;
@@ -59,12 +56,12 @@ public class TrianglePattern:IFormationPattern
         return location;
     }
 
-    public bool supportSlots(int slotCount)
+    public override bool supportSlots(int slotCount)
     {
         return true;
     }
 
-    public void calculateNumberOfSlots(List<SlotAssignment> assignments)
+    public override void calculateNumberOfSlots(List<SlotAssignment> assignments)
     {
         numberOfSlots = assignments.Count;
     }

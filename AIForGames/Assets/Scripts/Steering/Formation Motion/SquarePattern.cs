@@ -2,13 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SquarePattern : IFormationPattern
+public class SquarePattern : FormationPattern
 {
-    private int numberOfSlots;
-    public float characterRadius;
-    float xOffset = 0.5f;
-    float zOffset = 0.5f;
-    public Kinematic GetDriftOffset(List<SlotAssignment> assignments)
+    public override Kinematic GetDriftOffset(List<SlotAssignment> assignments)
     {
         Kinematic center = new Kinematic();
         for (int i = 0; i < assignments.Count; i++)
@@ -26,7 +22,7 @@ public class SquarePattern : IFormationPattern
         return center;
     }
 
-    public Kinematic GetSlotLocation(int slotNumber)
+    public override Kinematic GetSlotLocation(int slotNumber)
     {
         Kinematic location = new Kinematic();
         int rows = Mathf.FloorToInt(Mathf.Sqrt(numberOfSlots));
@@ -38,12 +34,12 @@ public class SquarePattern : IFormationPattern
 
     }
 
-    public bool supportSlots(int slotCount)
+    public override bool supportSlots(int slotCount)
     {
         return true;
     }
 
-    public void calculateNumberOfSlots(List<SlotAssignment> assignments)
+    public override void calculateNumberOfSlots(List<SlotAssignment> assignments)
     {
         numberOfSlots = assignments.Count;
     }
