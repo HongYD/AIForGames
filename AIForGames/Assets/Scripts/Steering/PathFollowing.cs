@@ -23,13 +23,13 @@ public class PathFollowing : SteeringBase
 
     void Start()
     {
-        path = GameObject.Find("AStar").GetComponent<PathFinding>().path;
+        //path = GameObject.Find("AStar").GetComponent<PathFindingAStar>().;
     }
 
     // Update is called once per frame
     void Update()
     {
-        path = GameObject.Find("AStar").GetComponent<PathFinding>().path;
+        //path = GameObject.Find("AStar").GetComponent<PathFinding>().path;
         GetSteeringOutput(target);
         ApplyMovement();
 

@@ -11,8 +11,8 @@ public class Node
     public int gridX;
     public int gridY;
 
-    public int gCost;
-    public int hCost;
+    public int costSoFar;
+    public int costHeuristic;
     public Node parent;
 
     public Node(bool _walkable, Vector3 _worldPos,int _gridX,int _gridY)
@@ -23,10 +23,10 @@ public class Node
         gridY = _gridY;
     }
 
-    public int fCost
+    public int estimatedTotalCost
     {
         get { 
-            return gCost + hCost; 
+            return costSoFar + costHeuristic; 
         }
     }
 }

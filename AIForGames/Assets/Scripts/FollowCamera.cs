@@ -10,6 +10,7 @@ public class FollowCamera : MonoBehaviour
     void Start()
     {
         offset = transform.position - target.transform.position;
+        offset = new Vector3(offset.x, 20.0f, offset.z);
     }
 
     // Update is called once per frame
