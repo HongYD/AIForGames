@@ -23,27 +23,15 @@ public class PathFindingAStar : MonoBehaviour
         Node startNode = grid.NodeFromWorldPoint(startPosition);
         Node goalNode = grid.NodeFromWorldPoint(endPosition);
 
-        List<Node> openNodes = new List<Node>();
+        MinHeap<Node> openNodes = new MinHeap<Node>(grid.MaxSize);
         HashSet<Node> closeNodes = new HashSet<Node>();
         openNodes.Add(startNode);
 
         while(openNodes.Count > 0)
         {
-            Node node = openNodes[0];
-            //Find the smallest element in the open list
-            for (int i = 1; i < openNodes.Count; i++)
-            {
-                if (openNodes[i].estimatedTotalCost <= node.estimatedTotalCost)
-                {
-                    if(openNodes[i].costHeuristic < node.costHeuristic)
-                    {
-                        node = openNodes[i];
-                    }
-                }
-            }
-
-            openNodes.Remove(node);
+            Node node = openNodes.RemoveFirst();
             closeNodes.Add(node);
+
             if(node == goalNode)
             {
                 RetracePath(startNode, goalNode);
@@ -58,16 +46,20 @@ public class PathFindingAStar : MonoBehaviour
                 }
                 else
                 {
-                    int newCostToNeighbour = node.costSoFar + GetCost(node, neighbour);
+                    int newCostToNeighbour = node.costSoFar + GetHeuristicCost(node, neighbour);
                     if(newCostToNeighbour < neighbour.costSoFar || !openNodes.Contains(neighbour))
                     {
                         neighbour.costSoFar = newCostToNeighbour;
-                        neighbour.costHeuristic = GetCost(node,goalNode);
+                        neighbour.costHeuristic = GetHeuristicCost(node,goalNode);
                         neighbour.parent = node;
 
                         if (!openNodes.Contains(neighbour))
                         {
                             openNodes.Add(neighbour);
+                        }
+                        else
+                        {
+                            openNodes.UpdateItem(neighbour);
                         }
                     }
                 }
@@ -76,17 +68,17 @@ public class PathFindingAStar : MonoBehaviour
     }
 
     //Heuristic使用Manhattan Distance曼哈顿距离，因为欧式距离要开根号开销大
-    private int GetCost(Node nodeA, Node nodeB)
+    private int GetHeuristicCost(Node nodeA, Node nodeB)
     {
         int distX = Mathf.Abs(nodeA.gridX - nodeB.gridX);
         int distY = Mathf.Abs(nodeA.gridY - nodeB.gridY);
         if (distX > distY)
         {
-            return 14 * distY + 10 * distX;
+            return 14 * distY + 10 * (distX);
         }
         else
         {
-            return 14 * distX + 10 * distY;
+            return 14 * distX + 10 * (distY);
         }
     }
 

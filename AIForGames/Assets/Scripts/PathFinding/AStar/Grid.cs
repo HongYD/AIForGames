@@ -12,8 +12,6 @@ public class Grid : MonoBehaviour
     public float nodeRadius;
     Node[,] grid;
 
-
-
     private void Awake()
     {
         gridWorldSize = new Vector2(this.transform.lossyScale.x * 10, this.transform.lossyScale.z * 10);
@@ -21,6 +19,11 @@ public class Grid : MonoBehaviour
         gridXNodeNum = Mathf.RoundToInt(gridWorldSize.x / nodeDiameter);
         gridYNodeNum = Mathf.RoundToInt(gridWorldSize.y / nodeDiameter);
         CreateGrid();
+    }
+
+    public int MaxSize
+    {
+        get { return gridXNodeNum * gridYNodeNum; }
     }
 
     private void CreateGrid()
