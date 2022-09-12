@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class PathFindingAStar : MonoBehaviour
 {
-    public Transform seeker, target;
     Grid grid;
 
     private void Awake()
@@ -13,58 +12,66 @@ public class PathFindingAStar : MonoBehaviour
         grid = GetComponent<Grid>();
     }
 
-    private void Update()
+    private IEnumerator FindPath(Vector3 startPosition, Vector3 endPosition)
     {
-        FindPath(seeker.position, target.position);
-    }
+        Vector3[] pathNodes = new Vector3[0];
+        bool pathFindingSuccess = false;
 
-    private void FindPath(Vector3 startPosition, Vector3 endPosition)
-    {
         Node startNode = grid.NodeFromWorldPoint(startPosition);
         Node goalNode = grid.NodeFromWorldPoint(endPosition);
 
-        MinHeap<Node> openNodes = new MinHeap<Node>(grid.MaxSize);
-        HashSet<Node> closeNodes = new HashSet<Node>();
-        openNodes.Add(startNode);
-
-        while(openNodes.Count > 0)
+        if (startNode.walkable && goalNode.walkable)
         {
-            Node node = openNodes.RemoveFirst();
-            closeNodes.Add(node);
+            MinHeap<Node> openNodes = new MinHeap<Node>(grid.MaxSize);
+            HashSet<Node> closeNodes = new HashSet<Node>();
+            openNodes.Add(startNode);
 
-            if(node == goalNode)
+            while (openNodes.Count > 0)
             {
-                RetracePath(startNode, goalNode);
-                return;
-            }
+                Node node = openNodes.RemoveFirst();
+                closeNodes.Add(node);
 
-            foreach(Node neighbour in grid.GetNeighbours(node))
-            {
-                if(!neighbour.walkable || closeNodes.Contains(neighbour))
+                if (node == goalNode)
                 {
-                    continue;
+                    pathFindingSuccess = true;
+                    break;
                 }
-                else
-                {
-                    int newCostToNeighbour = node.costSoFar + GetHeuristicCost(node, neighbour);
-                    if(newCostToNeighbour < neighbour.costSoFar || !openNodes.Contains(neighbour))
-                    {
-                        neighbour.costSoFar = newCostToNeighbour;
-                        neighbour.costHeuristic = GetHeuristicCost(node,goalNode);
-                        neighbour.parent = node;
 
-                        if (!openNodes.Contains(neighbour))
+                foreach (Node neighbour in grid.GetNeighbours(node))
+                {
+                    if (!neighbour.walkable || closeNodes.Contains(neighbour))
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        int newCostToNeighbour = node.costSoFar + GetHeuristicCost(node, neighbour);
+                        if (newCostToNeighbour < neighbour.costSoFar || !openNodes.Contains(neighbour))
                         {
-                            openNodes.Add(neighbour);
-                        }
-                        else
-                        {
-                            openNodes.UpdateItem(neighbour);
+                            neighbour.costSoFar = newCostToNeighbour;
+                            neighbour.costHeuristic = GetHeuristicCost(node, goalNode);
+                            neighbour.parent = node;
+
+                            if (!openNodes.Contains(neighbour))
+                            {
+                                openNodes.Add(neighbour);
+                            }
+                            else
+                            {
+                                openNodes.UpdateItem(neighbour);
+                            }
                         }
                     }
                 }
             }
         }
+        yield return null;
+        if (pathFindingSuccess)
+        {
+            pathNodes = RetracePath(startNode, goalNode);
+        }
+        PathRequestManager.instance.FinishedProcessingPath(pathNodes, pathFindingSuccess, PathFindingTypeEnum.AStar);
+        
     }
 
     //Heuristic使用Manhattan Distance曼哈顿距离，因为欧式距离要开根号开销大
@@ -82,7 +89,7 @@ public class PathFindingAStar : MonoBehaviour
         }
     }
 
-    private void RetracePath(Node startNode, Node goalNode)
+    private Vector3[] RetracePath(Node startNode, Node goalNode)
     {
         List<Node> path = new List<Node>();
         Node currentNode = goalNode;
@@ -92,7 +99,25 @@ public class PathFindingAStar : MonoBehaviour
             currentNode = currentNode.parent;
         }
         path.Add(startNode);
-        path.Reverse();
-        grid.path = path;
+        Vector3[] pathNodes = SimplifyPath(path);
+        Array.Reverse(pathNodes);
+        return pathNodes;
+    }
+
+    private Vector3[] SimplifyPath(List<Node> path)
+    {
+        List<Vector3> waypoints = new List<Vector3>();
+        Vector2 directionOld = Vector2.zero;
+
+        for (int i = 1; i < path.Count; i++)
+        {
+            Vector2 directionNew = new Vector2(path[i - 1].gridX - path[i].gridX, path[i - 1].gridY - path[i].gridY);
+            if (directionNew != directionOld)
+            {
+                waypoints.Add(path[i].worldPosition);
+            }
+            directionOld = directionNew;
+        }
+        return waypoints.ToArray();
     }
 }
