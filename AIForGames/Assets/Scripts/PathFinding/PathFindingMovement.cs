@@ -32,17 +32,22 @@ public class PathFindingMovement : MonoBehaviour
 		{
 			if (transform.position == currentNode)
 			{
-				targetIndex++;
-				if (targetIndex >= path.Length)
-				{
-					yield break;
-				}
-				currentNode = path[targetIndex];
+				targetIndex++;		
 			}
-
-			transform.position = Vector3.MoveTowards(transform.position, currentNode, speed * Time.deltaTime);
+			if (targetIndex < path.Length)
+			{
+				currentNode = path[targetIndex];
+				transform.position = Vector3.MoveTowards(transform.position, currentNode, speed * Time.deltaTime);
+			}
+			else if ((targetIndex >= path.Length) && transform.position != target.position)
+			{
+				transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+			}
+            else
+            {
+				yield break;
+			}
 			yield return null;
-
 		}
 	}
 
