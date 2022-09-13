@@ -15,8 +15,6 @@ public struct PathRequest
     public Vector3 pathEnd;
     public Action<Vector3[],bool> callback;
     PathFindingTypeEnum pathFindingType;
-
-
     public PathRequest(Vector3 _start, Vector3 _end, Action<Vector3[], bool> _callback, PathFindingTypeEnum _pathFindingType)
     {
         pathStart = _start;
@@ -26,21 +24,24 @@ public struct PathRequest
     }
 }
 
-public class PathRequestManager : MonoBehaviour
+public class PathRequestManager: MonoBehaviour
 {
     Queue<PathRequest> pathRequestQueue = new Queue<PathRequest> ();
     PathRequest currentPathRequest;
     public static PathRequestManager instance;
+    PathFindingBase pathFinding;
     bool isProcessingPath;
+    Grid grid;
 
-    private void Awake()
+    void Awake()
     {
         instance = this;
+        grid = GetComponent<Grid>();
     }
 
-    public void RequestPath(Vector3 startNode, Vector3 GoalNode, Action<Vector3[], bool> callback, PathFindingTypeEnum pathFindingType)
+    public void RequestPath(Vector3 startNode, Vector3 goalNode, Action<Vector3[], bool> callback, PathFindingTypeEnum pathFindingType)
     {
-        PathRequest pathRequest = new PathRequest (startNode, GoalNode, callback, pathFindingType);
+        PathRequest pathRequest = new PathRequest (startNode, goalNode, callback, pathFindingType);
         instance.pathRequestQueue.Enqueue (pathRequest);
         instance.TryProcessNext(pathFindingType);
     }
@@ -51,14 +52,20 @@ public class PathRequestManager : MonoBehaviour
         {
             currentPathRequest = pathRequestQueue.Dequeue ();
             isProcessingPath = true;
-            if(pathFindingType == PathFindingTypeEnum.AStar)
-            {
-                
-            }
-            else if(pathFindingType == PathFindingTypeEnum.Dijkstra)
-            {
+            StartFindPath(currentPathRequest.pathStart, currentPathRequest.pathEnd, pathFindingType);
+        }
+    }
 
-            }
+    public void StartFindPath(Vector3 startPos, Vector3 goalPos, PathFindingTypeEnum pathFindingType)
+    {
+        if (pathFindingType == PathFindingTypeEnum.AStar)
+        {
+            pathFinding = new PathFindingAStar();
+            StartCoroutine(pathFinding.FindPath(startPos, goalPos, grid));
+        }
+        else if(pathFindingType == PathFindingTypeEnum.Dijkstra)
+        {
+
         }
     }
 

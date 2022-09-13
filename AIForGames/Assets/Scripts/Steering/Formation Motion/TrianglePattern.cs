@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class TrianglePattern:FormationPattern
 {
-
     public override Kinematic GetDriftOffset(List<SlotAssignment> assignments)
     {
         Kinematic center = new Kinematic();

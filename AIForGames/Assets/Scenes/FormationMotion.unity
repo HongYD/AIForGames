@@ -615,22 +615,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 450018452, guid: 59057dd663af4c14ab2a8b0978a07f38, type: 3}
-      propertyPath: seeker
-      value: 
-      objectReference: {fileID: 1880530721}
-    - target: {fileID: 450018452, guid: 59057dd663af4c14ab2a8b0978a07f38, type: 3}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 775848414}
-    - target: {fileID: 450018457, guid: 59057dd663af4c14ab2a8b0978a07f38, type: 3}
-      propertyPath: gridWorldSize.x
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 450018457, guid: 59057dd663af4c14ab2a8b0978a07f38, type: 3}
-      propertyPath: gridWorldSize.y
-      value: 200
-      objectReference: {fileID: 0}
     - target: {fileID: 8892096526712392915, guid: 59057dd663af4c14ab2a8b0978a07f38, type: 3}
       propertyPath: m_Name
       value: Floor
@@ -2435,26 +2419,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1548148384139944858, guid: b1f1df74863b6394f8a52bb8957b80ff, type: 3}
+    - target: {fileID: 1880530722, guid: b1f1df74863b6394f8a52bb8957b80ff, type: 3}
       propertyPath: target
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1548148384139944858, guid: b1f1df74863b6394f8a52bb8957b80ff, type: 3}
-      propertyPath: maxSpeed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1548148384139944858, guid: b1f1df74863b6394f8a52bb8957b80ff, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1548148384139944858, guid: b1f1df74863b6394f8a52bb8957b80ff, type: 3}
-      propertyPath: slowRadius
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1548148384139944858, guid: b1f1df74863b6394f8a52bb8957b80ff, type: 3}
-      propertyPath: maxAcceleration
-      value: 20
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 775848414}
     - target: {fileID: 4728924326747484625, guid: b1f1df74863b6394f8a52bb8957b80ff, type: 3}
       propertyPath: m_Name
       value: Player
@@ -2505,11 +2473,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1f1df74863b6394f8a52bb8957b80ff, type: 3}
---- !u!4 &1880530721 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4728924326747484629, guid: b1f1df74863b6394f8a52bb8957b80ff, type: 3}
-  m_PrefabInstance: {fileID: 1880530720}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2019180677
 GameObject:
   m_ObjectHideFlags: 0

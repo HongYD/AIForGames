@@ -6,7 +6,7 @@ using UnityEngine;
 public class PathFindingMovement : MonoBehaviour
 {
 	public Transform target;
-	float speed = 20;
+	float speed = 10;
 	Vector3[] path;
 	int targetIndex;
 	void Start()

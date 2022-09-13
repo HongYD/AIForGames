@@ -41,11 +41,6 @@ public class Grid : MonoBehaviour
         }
     }
 
-    private void UpdateWalkable()
-    {
-
-    }
-
     public List<Node>GetNeighbours(Node node)
     {
         List<Node> neighbours = new List<Node>();

@@ -3,16 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PathFindingAStar : MonoBehaviour
+public class PathFindingAStar : PathFindingBase
 {
-    Grid grid;
-
-    private void Awake()
-    {
-        grid = GetComponent<Grid>();
-    }
-
-    private IEnumerator FindPath(Vector3 startPosition, Vector3 endPosition)
+    public override IEnumerator FindPath(Vector3 startPosition, Vector3 endPosition, Grid grid)
     {
         Vector3[] pathNodes = new Vector3[0];
         bool pathFindingSuccess = false;
@@ -70,8 +63,7 @@ public class PathFindingAStar : MonoBehaviour
         {
             pathNodes = RetracePath(startNode, goalNode);
         }
-        PathRequestManager.instance.FinishedProcessingPath(pathNodes, pathFindingSuccess, PathFindingTypeEnum.AStar);
-        
+        PathRequestManager.instance.FinishedProcessingPath(pathNodes, pathFindingSuccess, PathFindingTypeEnum.AStar);      
     }
 
     //Heuristic使用Manhattan Distance曼哈顿距离，因为欧式距离要开根号开销大
@@ -81,11 +73,11 @@ public class PathFindingAStar : MonoBehaviour
         int distY = Mathf.Abs(nodeA.gridY - nodeB.gridY);
         if (distX > distY)
         {
-            return 14 * distY + 10 * (distX);
+            return 14 * distY + 10 * (distX - distY);
         }
         else
         {
-            return 14 * distX + 10 * (distY);
+            return 14 * distX + 10 * (distY - distX);
         }
     }
 
