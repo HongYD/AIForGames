@@ -14,44 +14,66 @@ public class SlotAssignment
     public GameObject player;
     public int slotNumber;
 }
-public class FormationManager : SteeringBase
+public class FormationManager/* : SteeringBase*/
 {
     public List<SlotAssignment> slotAssignments;
     public Kinematic driftOffset;
     public FormationPattern pattern;
     public FormationPatternEnum formation;
-    private List<GameObject> selectedPlayers;
+    //private List<GameObject> selectedPlayers;
 
-    private void Start()
+    //private void Start()
+    //{
+    //    selectedPlayers = GameObject.Find("GameManager").GetComponent<SelectionManager>().currentlySelectedPlayersListInstance;
+    //    GameObject[] playerList = new GameObject[selectedPlayers.Count];
+    //    if (selectedPlayers != null && selectedPlayers.Count > 0)
+    //    {
+    //        playerList = selectedPlayers.ToArray();
+    //    }
+    //    else
+    //    {
+    //        playerList = GameObject.FindGameObjectsWithTag("Player");
+    //    }
+    //    slotAssignments = new List<SlotAssignment>();
+    //    pattern = new TrianglePattern();
+    //    formation = FormationPatternEnum.Triangle;
+    //    for (int i = 0; i < playerList.Length; i++)
+    //    {
+    //        AddCharacter(playerList[i]);
+    //        pattern.calculateNumberOfSlots(slotAssignments);
+    //    }
+    //    UpdateSlotAssignments();
+    //    //for(int i = 0; i < slotAssignments.Count; i++)
+    //    //{
+    //    //    slotAssignments[i].player.GetComponent<Arrive>().GetSteeringOutput(slotAssignments[i].player.transform.position);
+    //    //}
+    //}
+
+    //private void Update()
+    //{
+    //    UpdateSlots();
+    //}
+    public void InitSlotAssignments(List<GameObject> _players, FormationPatternEnum _formation)
     {
-        selectedPlayers = GameObject.Find("GameManager").GetComponent<SelectionManager>().currentlySelectedPlayersListInstance;
-        GameObject[] playerList = new GameObject[selectedPlayers.Count];
-        if (selectedPlayers != null && selectedPlayers.Count > 0)
-        {
-            playerList = selectedPlayers.ToArray();
-        }
-        else
-        {
-            playerList = GameObject.FindGameObjectsWithTag("Player");
-        }
         slotAssignments = new List<SlotAssignment>();
-        pattern = new TrianglePattern();
-        formation = FormationPatternEnum.Triangle;
-        for (int i = 0; i < playerList.Length; i++)
+        if(_formation == FormationPatternEnum.DefensiveCircle)
         {
-            AddCharacter(playerList[i]);
-            pattern.calculateNumberOfSlots(slotAssignments);
-        }      
-        UpdateSlotAssignments();
-        for(int i = 0; i < slotAssignments.Count; i++)
-        {
-            slotAssignments[i].player.GetComponent<Arrive>().GetSteeringOutput(slotAssignments[i].player.transform.position);
+            pattern = new DefensiveCirclePattern();           
         }
-    }
-
-    private void Update()
-    {
-        UpdateSlots();
+        else if(_formation == FormationPatternEnum.Triangle)
+        {
+            pattern = new TrianglePattern();
+        }
+        else if (_formation == FormationPatternEnum.Square)
+        {
+            pattern = new SquarePattern();
+        }
+        formation = _formation;
+        for (int i = 0; i < _players.Count; i++)
+        {
+            AddCharacter(_players[i]);
+        }
+        UpdateSlotAssignments();
     }
 
     public void UpdateSlotAssignments()
@@ -98,7 +120,7 @@ public class FormationManager : SteeringBase
             Kinematic location = new Kinematic();
             location.position = relativeLoc.position + anchorPos;
             location.position -= driftOffset.position;
-            slotAssignments[i].player.GetComponent<Arrive>().GetSteeringOutput(location.position);
+            //slotAssignments[i].player.GetComponent<Arrive>().GetSteeringOutput(location.position);
         }
     }
 
@@ -118,14 +140,14 @@ public class FormationManager : SteeringBase
         return anchorPoint;
     }
 
-    protected override Vector3 GetFacing(Transform agent)
-    {
-        Vector3 childPosition = agent.GetChild(0).position;
-        Vector3 faceDir3D = (childPosition - agent.position);
-        Vector3 faceDir = new Vector3(faceDir3D.x, 0, faceDir3D.z);
-        faceDir = faceDir.normalized;
-        return faceDir;
-    }
+    //protected override Vector3 GetFacing(Transform agent)
+    //{
+    //    Vector3 childPosition = agent.GetChild(0).position;
+    //    Vector3 faceDir3D = (childPosition - agent.position);
+    //    Vector3 faceDir = new Vector3(faceDir3D.x, 0, faceDir3D.z);
+    //    faceDir = faceDir.normalized;
+    //    return faceDir;
+    //}
 
     public void Create(FormationPatternEnum patternType)
     {
