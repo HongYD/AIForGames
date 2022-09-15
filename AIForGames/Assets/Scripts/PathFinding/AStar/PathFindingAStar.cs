@@ -106,19 +106,19 @@ public class PathFindingAStar : PathFindingBase
             Vector2 directionNew = new Vector2(path[i - 1].gridX - path[i].gridX, path[i - 1].gridY - path[i].gridY);
             if (directionNew != directionOld)
             {
-                waypoints.Add(path[i].worldPosition);
+                waypoints.Add(path[i].worldPosition + new Vector3(0,1.0f,0));
             }
             directionOld = directionNew;
         }
         if (waypoints.Count <= 0)
         {
-            if (!waypoints.Contains(startNode.worldPosition))
+            if (!waypoints.Contains(startNode.worldPosition + new Vector3(0, 1.0f, 0)))
             {
-                waypoints.Add(startNode.worldPosition);
+                waypoints.Add(startNode.worldPosition + new Vector3(0, 1.0f, 0));
             }
-            if (!waypoints.Contains(goalNode.worldPosition))
+            if (!waypoints.Contains(goalNode.worldPosition + new Vector3(0, 1.0f, 0)))
             {
-                waypoints.Add(goalNode.worldPosition);
+                waypoints.Add(goalNode.worldPosition + new Vector3(0, 1.0f, 0));
             }
         }
         return waypoints.ToArray();

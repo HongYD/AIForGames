@@ -51,7 +51,7 @@ public class Target : MonoBehaviour, ISubject
         RaycastHit hit;
         if (Physics.Raycast(ray,out hit))
         {
-            transform.position = new Vector3(hit.point.x, 0, hit.point.z);
+            transform.position = new Vector3(hit.point.x, 1.0f, hit.point.z);
             Notify();
         }
     }
