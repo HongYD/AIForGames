@@ -90,13 +90,13 @@ public class PathFindingAStar : PathFindingBase
             path.Add(currentNode);
             currentNode = currentNode.parent;
         }
-        path.Add(startNode);
-        Vector3[] pathNodes = SimplifyPath(path);
+        //path.Add(startNode);
+        Vector3[] pathNodes = SimplifyPath(path,startNode,goalNode);
         Array.Reverse(pathNodes);
         return pathNodes;
     }
 
-    private Vector3[] SimplifyPath(List<Node> path)
+    private Vector3[] SimplifyPath(List<Node> path, Node startNode, Node goalNode)
     {
         List<Vector3> waypoints = new List<Vector3>();
         Vector2 directionOld = Vector2.zero;
@@ -109,6 +109,17 @@ public class PathFindingAStar : PathFindingBase
                 waypoints.Add(path[i].worldPosition);
             }
             directionOld = directionNew;
+        }
+        if (waypoints.Count <= 0)
+        {
+            if (!waypoints.Contains(startNode.worldPosition))
+            {
+                waypoints.Add(startNode.worldPosition);
+            }
+            if (!waypoints.Contains(goalNode.worldPosition))
+            {
+                waypoints.Add(goalNode.worldPosition);
+            }
         }
         return waypoints.ToArray();
     }

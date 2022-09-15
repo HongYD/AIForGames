@@ -3,16 +3,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PathFindingMovement : MonoBehaviour
+public class PathFindingMovement : MonoBehaviour,IObserver
 {
 	public Transform target;
-	float speed = 10;
+	public float speed = 10;
+	public bool isTargetChanged = false;
 	Vector3[] path;
 	int targetIndex;
+
 	void Start()
 	{
-		PathRequestManager.instance.RequestPath(transform.position, target.position, OnPathFound, PathFindingTypeEnum.AStar);
+		
 	}
+
+    private void Update()
+    {
+        if(target != null && isTargetChanged)
+        {
+			PathRequestManager.instance.RequestPath(transform.position, target.position, OnPathFound, PathFindingTypeEnum.AStar);
+			isTargetChanged = false;
+		}
+    }
 
     private void OnPathFound(Vector3[] newPath, bool pathSuccessful)
     {
@@ -56,7 +67,10 @@ public class PathFindingMovement : MonoBehaviour
 	void UpdateFacing(Vector3 traget)
     {
 		Vector2 targetDir = (target.position - transform.position).normalized.ToVector2();
-		this.transform.rotation = Quaternion.LookRotation(new Vector3(targetDir.x,0,targetDir.y));
+		if ((target.position - transform.position).magnitude > 0.1f)
+		{
+			this.transform.rotation = Quaternion.LookRotation(new Vector3(targetDir.x, 0, targetDir.y));
+		}
 	}
 
 	public void OnDrawGizmos()
@@ -78,5 +92,10 @@ public class PathFindingMovement : MonoBehaviour
 				}
 			}
 		}
+	}
+
+    public void Receive()
+    {
+		isTargetChanged = true;
 	}
 }
