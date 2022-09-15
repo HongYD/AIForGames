@@ -38,10 +38,12 @@ public class PathFindingMovement : MonoBehaviour
 			{
 				currentNode = path[targetIndex];
 				transform.position = Vector3.MoveTowards(transform.position, currentNode, speed * Time.deltaTime);
+				UpdateFacing(currentNode);				
 			}
 			else if ((targetIndex >= path.Length) && transform.position != target.position)
 			{
 				transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+				UpdateFacing(target.position);				
 			}
             else
             {
@@ -49,6 +51,12 @@ public class PathFindingMovement : MonoBehaviour
 			}
 			yield return null;
 		}
+	}
+
+	void UpdateFacing(Vector3 traget)
+    {
+		Vector2 targetDir = (target.position - transform.position).normalized.ToVector2();
+		this.transform.rotation = Quaternion.LookRotation(new Vector3(targetDir.x,0,targetDir.y));
 	}
 
 	public void OnDrawGizmos()
