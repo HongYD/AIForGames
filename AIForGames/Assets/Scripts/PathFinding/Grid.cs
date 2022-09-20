@@ -11,9 +11,11 @@ public class Grid : MonoBehaviour
     private int gridXNodeNum, gridYNodeNum;
     public float nodeRadius;
     Node[,] grid;
+    public static Grid instance;
 
     private void Awake()
     {
+        instance = this;
         gridWorldSize = new Vector2(this.transform.lossyScale.x * 10, this.transform.lossyScale.z * 10);
         nodeDiameter = nodeRadius * 2;
         gridXNodeNum = Mathf.RoundToInt(gridWorldSize.x / nodeDiameter);

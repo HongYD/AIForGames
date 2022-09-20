@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class PathFindingBase
 {
-    public virtual IEnumerator FindPath(Vector3 startPosition, Vector3 endPosition, Grid grid)
+    public virtual IEnumerator FindPath(Vector3 startPosition, Vector3 endPosition)
     {
         yield return null;
     }

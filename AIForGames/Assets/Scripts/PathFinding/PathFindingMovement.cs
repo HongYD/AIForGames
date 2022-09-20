@@ -3,11 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PathFindingMovement : MonoBehaviour,IObserver
+public class PathFindingMovement : MonoBehaviour
 {
 	public Transform target;
 	public float speed = 10;
-	public bool isTargetChanged = false;
+	//public bool isTargetChanged = false;
 	Vector3[] path;
 	int targetIndex;
 
@@ -18,11 +18,11 @@ public class PathFindingMovement : MonoBehaviour,IObserver
 
     private void Update()
     {
-        if(target != null && isTargetChanged)
-        {
-			PathRequestManager.instance.RequestPath(transform.position, target.position, OnPathFound, PathFindingTypeEnum.AStar);
-			isTargetChanged = false;
-		}
+  //      if(target != null && isTargetChanged)
+  //      {
+		//	PathRequestManager.instance.RequestPath(transform.position, target.position, OnPathFound, PathFindingTypeEnum.AStar);
+		//	isTargetChanged = false;
+		//}
     }
 
     private void OnPathFound(Vector3[] newPath, bool pathSuccessful)
@@ -73,6 +73,20 @@ public class PathFindingMovement : MonoBehaviour,IObserver
 		}
 	}
 
+	public void RemoveUnitFromUnitManagerMovingUnitsList()
+	{
+		if (PlayerManager.instance.movingPlayers.Count > 0)
+		{
+			for (int i = 0; i < PlayerManager.instance.movingPlayers.Count; i++)
+			{
+				if (this.gameObject == PlayerManager.instance.movingPlayers[i])
+				{
+					PlayerManager.instance.movingPlayers.Remove(PlayerManager.instance.movingPlayers[i]);
+				}
+			}
+		}
+	}
+
 	public void OnDrawGizmos()
 	{
 		if (path != null)
@@ -92,10 +106,5 @@ public class PathFindingMovement : MonoBehaviour,IObserver
 				}
 			}
 		}
-	}
-
-    public void Receive()
-    {
-		isTargetChanged = true;
 	}
 }

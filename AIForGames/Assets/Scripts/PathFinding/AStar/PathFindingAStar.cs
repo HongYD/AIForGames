@@ -5,17 +5,17 @@ using UnityEngine;
 
 public class PathFindingAStar : PathFindingBase
 {
-    public override IEnumerator FindPath(Vector3 startPosition, Vector3 endPosition, Grid grid)
+    public override IEnumerator FindPath(Vector3 startPosition, Vector3 endPosition)
     {
         Vector3[] pathNodes = new Vector3[0];
         bool pathFindingSuccess = false;
 
-        Node startNode = grid.NodeFromWorldPoint(startPosition);
-        Node goalNode = grid.NodeFromWorldPoint(endPosition);
+        Node startNode = Grid.instance.NodeFromWorldPoint(startPosition);
+        Node goalNode = Grid.instance.NodeFromWorldPoint(endPosition);
 
         if (startNode.walkable && goalNode.walkable)
         {
-            MinHeap<Node> openNodes = new MinHeap<Node>(grid.MaxSize);
+            MinHeap<Node> openNodes = new MinHeap<Node>(Grid.instance.MaxSize);
             HashSet<Node> closeNodes = new HashSet<Node>();
             openNodes.Add(startNode);
 
@@ -30,7 +30,7 @@ public class PathFindingAStar : PathFindingBase
                     break;
                 }
 
-                foreach (Node neighbour in grid.GetNeighbours(node))
+                foreach (Node neighbour in Grid.instance.GetNeighbours(node))
                 {
                     if (!neighbour.walkable || closeNodes.Contains(neighbour))
                     {

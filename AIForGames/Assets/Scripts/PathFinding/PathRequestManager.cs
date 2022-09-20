@@ -31,12 +31,10 @@ public class PathRequestManager: MonoBehaviour
     public static PathRequestManager instance;
     PathFindingBase pathFinding;
     bool isProcessingPath;
-    Grid grid;
 
     void Awake()
     {
         instance = this;
-        grid = GetComponent<Grid>();
     }
 
     public void RequestPath(Vector3 startNode, Vector3 goalNode, Action<Vector3[], bool> callback, PathFindingTypeEnum pathFindingType)
@@ -61,7 +59,7 @@ public class PathRequestManager: MonoBehaviour
         if (pathFindingType == PathFindingTypeEnum.AStar)
         {
             pathFinding = new PathFindingAStar();
-            StartCoroutine(pathFinding.FindPath(startPos, goalPos, grid));
+            StartCoroutine(pathFinding.FindPath(startPos, goalPos));
         }
         else if(pathFindingType == PathFindingTypeEnum.Dijkstra)
         {

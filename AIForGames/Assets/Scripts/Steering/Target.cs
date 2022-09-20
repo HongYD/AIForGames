@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Target : MonoBehaviour, ISubject
+public class Target : MonoBehaviour
 {
+    public static Vector2 target2D;
+    public static Vector3 target3D;
     Camera mainCamera;
-    private List<GameObject> _observers;
 
     [SerializeField]
     float radius;
@@ -23,12 +24,8 @@ public class Target : MonoBehaviour, ISubject
     private void Awake()
     {
         mainCamera = Camera.main;
-        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-        _observers = new List<GameObject>();
-        for (int i = 0; i< players.Length; i++)
-        {
-            Attach(players[i]);
-        }
+        target2D = new(transform.position.x,transform.position.z);
+        target3D = new(transform.position.x, 1.0f, transform.position.z);
     }
 
     void Update()
@@ -40,6 +37,8 @@ public class Target : MonoBehaviour, ISubject
         else
         {
             transform.position = this.transform.position;
+            target2D.Set(transform.position.x, transform.position.z);
+            target3D.Set(transform.position.x, 1.0f, transform.position.z);
         }
     }
 
@@ -52,25 +51,9 @@ public class Target : MonoBehaviour, ISubject
         if (Physics.Raycast(ray,out hit))
         {
             transform.position = new Vector3(hit.point.x, 1.0f, hit.point.z);
-            Notify();
-        }
-    }
-
-    public void Attach(GameObject observer)
-    {
-        _observers.Add(observer);
-    }
-
-    public void Detach(GameObject observer)
-    {
-        _observers.Remove(observer);
-    }
-
-    public void Notify()
-    {
-        foreach (var o in _observers)
-        {
-            o.GetComponent<PathFindingMovement>().Receive();
+            target2D.Set(hit.point.x, hit.point.z);
+            target3D.Set(hit.point.x, 1.0f, hit.point.z);
+            PlayerManager.instance.isTargetChanged = true;
         }
     }
 }
