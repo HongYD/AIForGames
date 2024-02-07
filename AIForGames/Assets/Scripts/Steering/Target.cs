@@ -24,8 +24,8 @@ public class Target : MonoBehaviour
     private void Awake()
     {
         mainCamera = Camera.main;
-        target2D = new(transform.position.x,transform.position.z);
-        target3D = new(transform.position.x, 1.0f, transform.position.z);
+        target2D = new Vector2(transform.position.x,transform.position.z);
+        target3D = new Vector3(transform.position.x, 1.0f, transform.position.z);
     }
 
     void Update()
